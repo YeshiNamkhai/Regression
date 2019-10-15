@@ -11,7 +11,9 @@ import java.io.IOException;
 
 /**
  * This is a utility class to read a CVS file (Comma Separated Values)
- *  line by line and split by token (,)
+ * line by line and split by token (,)
+ * then fill an array of strings
+ * to be printed or returned as the content
  */
 public class ReadCSV {
     
@@ -22,7 +24,7 @@ public class ReadCSV {
      * initializes an array of strings
      * for file content
      */
-    ReadCSV() {
+    public ReadCSV() {
         records = new ArrayList<>();
     }
 
@@ -66,7 +68,7 @@ public class ReadCSV {
     
     public static void main(String[] args) throws IOException {
         ReadCSV data = new ReadCSV();
-        data.loadCSV("slr/data.csv");
+        data.loadCSV("data.csv");
         data.printCSV();
         System.out.println(data.getCSV());
     }

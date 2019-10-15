@@ -2,6 +2,12 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - SimpleLinearRegression",
+            "request": "launch",
+            "mainClass": "SimpleLinearRegression"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - ReadCSV",
             "request": "launch",
             "mainClass": "slr.ReadCSV"
