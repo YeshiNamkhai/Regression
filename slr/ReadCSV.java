@@ -18,11 +18,18 @@ public class ReadCSV {
     private static final String COMMA_DELIMITER = ",";
     private List<List<String>> records;
 
+    /**
+     * initializes an array of strings
+     * for file content
+     */
     ReadCSV() {
         records = new ArrayList<>();
     }
 
-    void printContent() {
+    /**
+     * Prints the array of strings with file content
+     */
+    public void printCSV() {
         for (int i=0; i<records.size(); i++) {
             System.out.print(i+":\t");
             for(int j=0;j<records.get(i).size();j++) {
@@ -32,7 +39,14 @@ public class ReadCSV {
         }
     }
 
-    void readContent(String path) throws IOException {
+    /**
+     * Opens a CSV file and loads the content 
+     * line by line into an array of strings
+     * 
+     * @param path 
+     * @throws IOException
+     */
+    public void loadCSV(String path) throws IOException {
         try (BufferedReader br = new BufferedReader(new FileReader(path))) {
             String line;
             while ((line = br.readLine()) != null) {
@@ -41,10 +55,19 @@ public class ReadCSV {
             }
         }
     }
+
+    /**
+     * Gives back an array of strings
+     * @return array of strings
+     */
+    public List<List<String>> getCSV() {
+        return records;
+    }
     
     public static void main(String[] args) throws IOException {
         ReadCSV data = new ReadCSV();
-        data.readContent("slr/data.csv");
-        data.printContent();
+        data.loadCSV("slr/data.csv");
+        data.printCSV();
+        System.out.println(data.getCSV());
     }
 }
