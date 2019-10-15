@@ -1,53 +1,50 @@
 package slr;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.File;
+import java.io.IOException;
 
 /**
- * This is a utility class to read CVS files
- *  and return arrays of data for 
- *  simple linear regression
+ * This is a utility class to read a CVS file (Comma Separated Values)
+ *  line by line and split by token (,)
  */
 public class ReadCSV {
+    
+    private static final String COMMA_DELIMITER = ",";
+    private List<List<String>> records;
 
-    File csvFile;
-    BufferedReader csvReader;
-    String[][] content;
+    ReadCSV() {
+        records = new ArrayList<>();
+    }
 
     void printContent() {
-        for(int i=0;i<content.length;i++) {
-            System.out.print(i+": ");
-            for(int j=0;j<content[0].length;j++) {
-                System.out.print("["+content[i][j]+"]");
-
+        for (int i=0; i<records.size(); i++) {
+            System.out.print(i+":\t");
+            for(int j=0;j<records.get(i).size();j++) {
+                System.out.print(records.get(i).get(j)+"\t");
             }
             System.out.println();
         }
     }
 
-    boolean openFile(String path) {
-        csvFile = new File(path);
-        if (csvFile.isFile()) 
-            return true;
-        return false;
-    }
-
-    void closeFile() {
-        csvReader.close();
-    }
-
-    void readFile() {
-        csvReader = new BufferedReader(csvFile);
-        String row;
-        while ((row = csvReader.readLine()) != null) {
-            content = row.split(",");
+    void readContent(String path) throws IOException {
+        try (BufferedReader br = new BufferedReader(new FileReader(path))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                String[] values = line.split(COMMA_DELIMITER);
+                records.add(Arrays.asList(values));
+            }
         }
     }
-
-    public static void main(String[] args){
+    
+    public static void main(String[] args) throws IOException {
         ReadCSV data = new ReadCSV();
-        if(data.openFile("data.csv")) data.readFile();
+        data.readContent("slr/data.csv");
         data.printContent();
-        data.closeFile();
     }
 }
