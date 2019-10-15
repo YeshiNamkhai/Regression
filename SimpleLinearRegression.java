@@ -1,0 +1,5 @@
+import regression.*;
+
+class SimpleLinearRegression {
+    
+}
