@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - test",
+            "request": "launch",
+            "mainClass": "test",
+            "projectName": "Regression_ce487169"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - DrawShapes1",
             "request": "launch",
             "mainClass": "slr.DrawShapes1",
