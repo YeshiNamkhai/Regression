@@ -16,7 +16,7 @@ class SimpleLinearRegression {
         System.out.println(data.getCSV());
         try {
             JavaPlot p = new JavaPlot();
-            //p.set("autotitle columnhead", "''");
+            //p.set("title","'Scatter Plot'");
             p.setTitle("Scatter Plot");
             p.addPlot(new FileDataSet(new File("test.csv")));
             System.out.println(p.getParameters());
