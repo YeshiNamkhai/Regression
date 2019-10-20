@@ -2,35 +2,21 @@
     "configurations": [
         {
             "type": "java",
-            "name": "CodeLens (Launch) - test",
-            "request": "launch",
-            "mainClass": "test",
-            "projectName": "Regression_ce487169"
-        },
-        {
-            "type": "java",
-            "name": "CodeLens (Launch) - DrawShapes1",
-            "request": "launch",
-            "mainClass": "slr.DrawShapes1",
-            "projectName": "Regression_ce487169"
-        },
-        {
-            "type": "java",
             "name": "CodeLens (Launch) - Draw",
             "request": "launch",
             "mainClass": "slr.Draw"
         },
         {
             "type": "java",
-            "name": "CodeLens (Launch) - SimpleLinearRegression",
-            "request": "launch",
-            "mainClass": "SimpleLinearRegression"
-        },
-        {
-            "type": "java",
             "name": "CodeLens (Launch) - ReadCSV",
             "request": "launch",
             "mainClass": "slr.ReadCSV"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - SimpleLinearRegression",
+            "request": "launch",
+            "mainClass": "SimpleLinearRegression"
         }
     ]
 }
