@@ -1,9 +1,6 @@
-import java.io.File;
 import java.io.IOException;
 
-import com.panayotis.gnuplot.JavaPlot;
-import com.panayotis.gnuplot.dataset.FileDataSet;
-
+import slr.Draw;
 import slr.ReadCSV;
 
 class SimpleLinearRegression {
@@ -14,15 +11,12 @@ class SimpleLinearRegression {
         data.loadCSV("data.csv");
         data.printCSV();
         System.out.println(data.getCSV());
-        try {
-            JavaPlot p = new JavaPlot();
-            //p.set("title","'Scatter Plot'");
-            p.setTitle("Scatter Plot");
-            p.addPlot(new FileDataSet(new File("test.csv")));
-            System.out.println(p.getParameters());
-            p.plot();
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
+        
+        Draw a = new Draw();
+
+        double[] age = new double[] { 4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19 };
+        double[] height = new double[] { 100.1,107.2,114.1,121.7,126.8,130.90,137.5,143.2,149.4,151.6,154.0,154.6,155.0,155.1,155.3,155.7 };
+
+        a.render(age,height);
     }
 }
