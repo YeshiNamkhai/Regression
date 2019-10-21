@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - DataCSV",
+            "request": "launch",
+            "mainClass": "slr.DataCSV",
+            "projectName": "Test"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - Draw",
             "request": "launch",
             "mainClass": "slr.Draw"
