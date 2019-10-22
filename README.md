@@ -26,4 +26,9 @@ This is an implementation of *Simple Linear Regression* reading an input file in
 
 <small>Where the variable **y** is indipendent and the variable  **x** is dipendent. In this equation the coefficent **a** is the regression and as usual gives the slope of the line.</small>
 
+## Package
+The code that performs simple linear regression is organized into a package containg three classes: Compute, DataCSV and Draw.
+
+## Credits
+[XChart](https://knowm.org/open-source/xchart/) a light-weight and convenient library for plotting data. Its focus is on simplicity and ease-of-use, requiring only two lines of code to save or display a basic default chart.
 

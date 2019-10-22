@@ -80,19 +80,24 @@ public class DataCSV {
 
     /**
      * Gives back field names
-     * @return fields
+     * @return headers
      */
     public List<List<String>> getFields() {
         return fields;
     }
     /**
      * Gives back data values
-     * @return values
+     * @return values from all columns
      */
     public List<List<Double>> getValues() {
         return values;
     }
 
+    /**
+     * Gives back a single set of values
+     * @param i index
+     * @return only specific column
+     */
     public List<Double> getIndexValues(int i) {
         List<Double> d = new ArrayList<>();
         for(int j=0;j<values.size();j++) {
@@ -102,6 +107,23 @@ public class DataCSV {
         return d;
     }
 
+    /**
+     * Gives back a single set of values
+     * @param i index
+     * @param p precision
+     * @return only specific column as 1/i
+     */
+    public List<Double> getIndexValuesInverted(int i,int p) {
+        List<Double> d = new ArrayList<>();
+        for(int j=0;j<values.size();j++) {
+        try {
+            double v = Compute.invert(values.get(j).get(i),p);  
+            d.add(v);
+        }
+        catch(Exception e) {}
+        }
+        return d;
+    }
 
     public static void main(String[] args) throws IOException {
         DataCSV data = new DataCSV();
@@ -109,6 +131,7 @@ public class DataCSV {
         data.printCSV();
         System.out.println(data.getFields());
         System.out.println("X="+data.getIndexValues(0));
+        System.out.println("1/X="+data.getIndexValuesInverted(0,4));       
         System.out.println("Y="+data.getIndexValues(1));
     }
 }
