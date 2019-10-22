@@ -1,6 +1,7 @@
 # Regression
 
-This is an implementation of *Simple Linear Regression* reading an input file in CSV format such as</br> 
+This is an implementation of *Simple Linear Regression* reading an input file in CSV format such as
+
 | Age | Height |
 | --- | --- |
 | 4 | 100.1 |
@@ -19,6 +20,7 @@ This is an implementation of *Simple Linear Regression* reading an input file in
 | 17 | 155.1 |
 | 18 | 155.3 |
 | 19 | 155.7 |
+| Graph it | ![chart](img/dispersion.png) |
 | --- | --- |
 
 ..and showing a dispersion plot to check whether is meaningful to look for an equation in the form **y=ax+b**. 
