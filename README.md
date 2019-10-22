@@ -32,6 +32,8 @@ The code that performs simple linear regression is organized into a package cont
 ### Compute
 - round()
 - invert()
+- sumList()
+- avgList()
 
 ### DataCSV
 - getIndexValue()
