@@ -20,7 +20,7 @@ This is an implementation of *Simple Linear Regression* reading an input file in
 | 17 | 155.1 |
 | 18 | 155.3 |
 | 19 | 155.7 |
-| Graph it | ![chart](img/dispersion.png) |
+| Graph it | ![chart](img/dispersion.png =120x120) |
 
 ..and showing a dispersion plot to check whether is meaningful to look for an equation in the form **y=ax+b**. 
 
