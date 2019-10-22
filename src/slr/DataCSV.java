@@ -129,9 +129,13 @@ public class DataCSV {
         DataCSV data = new DataCSV();
         data.loadCSV("data.csv");
         data.printCSV();
-        System.out.println(data.getFields());
-        System.out.println("X="+data.getIndexValues(0));
-        System.out.println("1/X="+data.getIndexValuesInverted(0,4));       
-        System.out.println("Y="+data.getIndexValues(1));
+        List<Double> x= new ArrayList<>(data.getIndexValues(0));
+        List<Double> xInv= new ArrayList<>(data.getIndexValuesInverted(0,4));
+
+        System.out.println("Sum X= "+Compute.sumList(x));
+        System.out.println("Avg X= "+Compute.avgList(x,4));
+        System.out.println("1/X= "+xInv);
+        System.out.println("Sum 1/X= "+Compute.sumList(xInv));
+        System.out.println("Avg 1/X= "+Compute.avgList(xInv,4));
     }
 }
