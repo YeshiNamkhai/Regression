@@ -1,5 +1,7 @@
 package slr;
 
+import java.util.List;
+
 public class Compute {
 
     /**
@@ -24,5 +26,18 @@ public class Compute {
     public static double invert(double value, int precision) {
         return round(1/value,precision);
     }
+
+    public static double sumList(List<Double> values) {
+        double s = 0;
+        for(int i=0;i<values.size();i++)
+            s+=values.get(i);
+        return s;
+    }
+
+    public static double avgList(List<Double> values,int precision ) {
+        double a = 0;
+        a = sumList(values)/values.size();
+        return round(a,precision);
+    } 
 
 }
