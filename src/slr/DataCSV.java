@@ -95,8 +95,10 @@ public class DataCSV {
 
     public List<Double> getIndexValues(int i) {
         List<Double> d = new ArrayList<>();
-        for(int j=0;j<values.size();j++)
-            d.add(values.get(j).get(i));
+        for(int j=0;j<values.size();j++) {
+        try { d.add(values.get(j).get(i));}
+        catch(Exception e) {}
+        }
         return d;
     }
 
