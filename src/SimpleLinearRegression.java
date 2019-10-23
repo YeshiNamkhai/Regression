@@ -16,16 +16,29 @@ class SimpleLinearRegression {
         List<Double> xInv= new ArrayList<>(data.getIndexValuesInverted(0,4));
         List<Double> y= new ArrayList<>(data.getIndexValues(1));
 
+        double avgY = Compute.avgList(y,4);
+        double avgInvX = Compute.avgList(xInv,4);
+        double tssXinv = Compute.tssList(xInv,4);
+        double rss = Compute.rssList(xInv,y,avgInvX,avgY,4);
+
+        double a = Compute.round(rss/tssXinv,4);
+        double b = Compute.round(avgY-avgInvX*a,4);
+
         System.out.println();
         System.out.format("%10s %10s %10s\n","Age","1/age","Height");
         System.out.format("sum %6s %10s %10s\n",Compute.sumList(x),Compute.sumList(xInv),Compute.sumList(y));
-        System.out.format("avg %6s %10s %10s\n",Compute.avgList(x,4),Compute.avgList(xInv,4),Compute.avgList(y,4));
-        System.out.format("tss %17s %10s\n",Compute.tssList(xInv,4),Compute.tssList(y,4));
+        System.out.format("avg %6s %10s %10s\n",Compute.avgList(x,4),Compute.avgList(xInv,4),avgY);
+        System.out.format("tss %17s %10s\n",tssXinv,Compute.tssList(y,4));
         System.out.println();
-        System.out.format("rss %17s\n",Compute.rssList(xInv,y,4));
+        System.out.format("rss %17s\n",rss);
+        System.out.format("a %19s\n",a);
+        System.out.format("b %19s\n",b);
+        System.out.println();
+        System.out.format("y = %sx + %s\n",a,b);
         
-        Draw a = new Draw();
+
+        Draw scat = new Draw();
         String[] title = new String[] {"Dispersion Plot","Age","Height"};
-        a.scatterPlot(data.getIndexValues(0),data.getIndexValues(1), title);
+        scat.scatterPlot(data.getIndexValues(0),data.getIndexValues(1), title);
     }
 }

@@ -45,9 +45,7 @@ public class Compute {
         a = sumList(values)/values.size();
         return round(a,precision);
     } 
-    public static double rssList(List<Double> x,List<Double> y, int precision) {
-        double aX = avgList(x, precision);
-        double aY = avgList(y, precision);
+    public static double rssList(List<Double> x,List<Double> y,double aX, double aY, int precision) {
         double r = 0;
         for(int i=0;i<x.size();i++)
             r+=(x.get(i)-aX)*(y.get(i)-aY);

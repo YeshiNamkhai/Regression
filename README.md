@@ -45,7 +45,7 @@ Then computing for each row [TSS](https://en.wikipedia.org/wiki/Total_sum_of_squ
 
 | equation |
 | --- |
-| **Y** = -326.3517**X** + 173.2474 |
+| **y** = -326.3517**x** + 173.2474 |
 
 ## Package
 The code that performs simple linear regression is organized into a package containg three classes: Compute, DataCSV and Draw.
@@ -65,8 +65,6 @@ The code that performs simple linear regression is organized into a package cont
 
 ### Draw
 - scatterPlot()
-
-
 
 ## Credits
 [XChart](https://knowm.org/open-source/xchart/) a light-weight and convenient library for plotting data. Its focus is on simplicity and ease-of-use, requiring only two lines of code to save or display a basic default chart.
