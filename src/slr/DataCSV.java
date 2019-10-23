@@ -138,6 +138,6 @@ public class DataCSV {
         System.out.println("Sum 1/X= "+Compute.sumList(xInv));
         System.out.println("Avg 1/X= "+Compute.avgList(xInv,4));
 
-        System.out.println("TSS 1/X= "+Compute.totalSumSqrList(xInv, 4));
+        System.out.println("TSS 1/X= "+Compute.tssList(xInv, 4));
     }
 }

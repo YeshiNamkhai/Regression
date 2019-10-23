@@ -45,7 +45,7 @@ public class Compute {
         a = sumList(values)/values.size();
         return round(a,precision);
     } 
-    public static double totalSumSqrList(List<Double> values, int precision) {
+    public static double tssList(List<Double> values, int precision) {
         double a = avgList(values, precision);
         double t = 0;
         for(int i=0;i<values.size();i++)
