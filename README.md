@@ -28,11 +28,11 @@ This is an implementation of *Simple Linear Regression* reading an input file in
 
 Then computing for each row [TSS](https://en.wikipedia.org/wiki/Total_sum_of_squares) and Variance.
 
-| | Age | Height | 1/age |
+| | Age | 1/age | Height |
 | --- | --- | --- | --- |
-| sum | 184.0 | 2,212.2 | 1.7144 |
-| avg | 11.5 | 138.3 | 0.1072 |
-| tss | | 5464.4575 | 0.0489 |
+| sum | 184.0 | 1.7144 | 2212.2 |
+| avg | 11.5 | 0.1072 | 138.2625 |
+| tss | | 0.0489 | 5464.4575 |
 
 
 

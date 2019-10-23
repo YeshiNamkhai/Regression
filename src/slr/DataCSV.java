@@ -133,13 +133,10 @@ public class DataCSV {
         List<Double> xInv= new ArrayList<>(data.getIndexValuesInverted(0,4));
         List<Double> y= new ArrayList<>(data.getIndexValues(1));
 
-        System.out.println("Sum X= "+Compute.sumList(x));
-        System.out.println("Avg X= "+Compute.avgList(x,4));
-        System.out.println("1/age= "+xInv);
-        System.out.println("Sum 1/age= "+Compute.sumList(xInv));
-        System.out.println("Avg 1/age= "+Compute.avgList(xInv,4));
-
-        System.out.println("TSS 1/age= "+Compute.tssList(xInv, 4));
-        System.out.println("TSS Y= "+Compute.tssList(y, 4));
+        System.out.println();
+        System.out.format("%10s %10s %10s\n","Age","1/age","Height");
+        System.out.format("sum %6s %10s %10s\n",Compute.sumList(x),Compute.sumList(xInv),Compute.sumList(y));
+        System.out.format("avg %6s %10s %10s\n",Compute.avgList(x,4),Compute.avgList(xInv,4),Compute.avgList(y,4));
+        System.out.format("tss %6s %10s %10s\n","",Compute.tssList(xInv,4),Compute.tssList(y,4));
     }
 }
