@@ -32,9 +32,10 @@ The code that performs simple linear regression is organized into a package cont
 ### Compute
 - round()   **round with precision**
 - invert()  **1/X**
-- sumList() **column sum**
-- avgList() **column average**
-- tssList()  **Total Sum of Squares** or [TSS](https://en.wikipedia.org/wiki/Total_sum_of_squares)  
+- Column calculations
+    - sumList() column **sum**
+    - avgList() column **average**
+    - tssList()  **T**otal **S**um of **S**quares** or [TSS](https://en.wikipedia.org/wiki/Total_sum_of_squares)  
 
 ### DataCSV
 - getIndexValue()
