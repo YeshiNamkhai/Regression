@@ -31,7 +31,7 @@ Then computing for each row [TSS](https://en.wikipedia.org/wiki/Total_sum_of_squ
 | | Age | Height | 1/age |
 | --- | --- | --- | --- |
 | sum | 184.0 | 2,212.2 | 1.7144 |
-| avg | 11.5 | 138.3 | 0.0489 |
+| avg | 11.5 | 138.3 | 0.1072 |
 | tss | | 5464.4575 | 0.0489 |
 
 
