@@ -30,10 +30,11 @@ This is an implementation of *Simple Linear Regression* reading an input file in
 The code that performs simple linear regression is organized into a package containg three classes: Compute, DataCSV and Draw.
 
 ### Compute
-- round()
-- invert()
-- sumList()
-- avgList()
+- round()   **round with precision**
+- invert()  **1/X**
+- sumList() **column sum**
+- avgList() **column average**
+- totalSumSqrList()  **Total Sum of Squares** IT:*Somma dei quadrati degli scarti*  
 
 ### DataCSV
 - getIndexValue()
