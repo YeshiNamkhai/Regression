@@ -49,7 +49,7 @@ public class Compute {
         double a = avgList(values, precision);
         double t = 0;
         for(int i=0;i<values.size();i++)
-            t+=values.get(i)-a;
+            t+=(values.get(i)-a)*(values.get(i)-a);
         return round(t, precision);
     }
 

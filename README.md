@@ -34,7 +34,7 @@ The code that performs simple linear regression is organized into a package cont
 - invert()  **1/X**
 - sumList() **column sum**
 - avgList() **column average**
-- totalSumSqrList()  **Total Sum of Squares**   (it *Somma dei quadrati degli scarti*)  
+- totalSumSqrList()  **Total Sum of Squares**   [TSS](https://wikimedia.org/api/rest_v1/media/math/render/svg/24f49fd012d7208436fc502fdb1f0065605951e6)  
 
 ### DataCSV
 - getIndexValue()
