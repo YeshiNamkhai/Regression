@@ -26,7 +26,7 @@ This is an implementation of *Simple Linear Regression* reading an input file in
 
 <small>Where the variable **y** is indipendent and the variable  **x** is dipendent. In this equation the coefficent **a** is the regression and as usual gives the slope of the line.</small>
 
-Then computing for each row [TSS](https://en.wikipedia.org/wiki/Total_sum_of_squares) and Variance.
+Then computing for each row [TSS](https://en.wikipedia.org/wiki/Total_sum_of_squares) and [RSS](https://en.wikipedia.org/wiki/Residual_sum_of_squares).
 
 | | Age | 1/age | Height |
 | --- | --- | --- | --- |
@@ -34,6 +34,9 @@ Then computing for each row [TSS](https://en.wikipedia.org/wiki/Total_sum_of_squ
 | avg | 11.5 | 0.1072 | 138.2625 |
 | tss | | 0.0489 | 5464.4575 |
 
+| rss |
+| --- |
+| -15.9586| |
 
 
 ## Package
@@ -45,7 +48,8 @@ The code that performs simple linear regression is organized into a package cont
 - Column calculations
     - sumList() column **sum**
     - avgList() column **average**
-    - tssList()  **T**otal **S**um of **S**quares**  
+    - tssList()  **T**otal **S**um of **S**quares
+    - rssList()  **R**esidual **S**um of **S**quares
 
 ### DataCSV
 - getIndexValue()

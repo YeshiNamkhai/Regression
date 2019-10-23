@@ -45,6 +45,20 @@ public class Compute {
         a = sumList(values)/values.size();
         return round(a,precision);
     } 
+    public static double rssList(List<Double> x,List<Double> y, int precision) {
+        double aX = avgList(x, precision);
+        double aY = avgList(y, precision);
+        double r = 0;
+        for(int i=0;i<x.size();i++)
+            r+=(x.get(i)-aX)*(y.get(i)-aY);
+        return round(r, precision);
+    }
+    /**
+     * Calculate the Total Sum of Squares of a List
+     * @param values
+     * @param precision
+     * @return tss
+     */
     public static double tssList(List<Double> values, int precision) {
         double a = avgList(values, precision);
         double t = 0;
