@@ -113,11 +113,11 @@ public class DataCSV {
      * @param p precision
      * @return only specific column as 1/i
      */
-    public List<Double> getIndexValuesInverted(int i,int p) {
+    public List<Double> getIndexValuesInverted(int i) {
         List<Double> d = new ArrayList<>();
         for(int j=0;j<values.size();j++) {
         try {
-            double v = Compute.invert(values.get(j).get(i),p);  
+            double v = 1/values.get(j).get(i);  
             d.add(v);
         }
         catch(Exception e) {}

@@ -31,16 +31,16 @@ Then computing for each row [TSS](https://en.wikipedia.org/wiki/Total_sum_of_squ
 | | Age | 1/age | Height |
 | --- | --- | --- | --- |
 | sum | 184.0 | 1.7144 | 2212.2 |
-| avg | 11.5 | 0.1072 | 138.2625 |
-| tss | | 0.0489 | 5464.4574 |
+| avg | 11.5 | 0.1072 | 138.3 |
+| tss | | 0.0489 | 5464.4575 |
 
 | rss |
 | --- |
-| -15.9586| |
+| -15.9563| |
 
 | | coefficent |
 | --- | --- |
-| **a** <small>&sum;<sub>xy</sub> &sum;<sub>xx</sub></small> | -326.4 |
+| **a** <small>&sum;<sub>xy</sub> &sum;<sub>xx</sub></small> | -326.6 |
 | **b** <small><sub>avg</sub>Y-<sub>avg<sup>1</sup></sub>/<sub>age</sub>*a</small> |  173.3 |  
 
 | equation |
@@ -52,7 +52,6 @@ The code that performs simple linear regression is organized into a package cont
 
 ### Compute
 - round()   **round with precision**
-- invert()  **1/X**
 - Column calculations
     - sumList() column **sum**
     - avgList() column **average**

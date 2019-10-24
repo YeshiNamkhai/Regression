@@ -15,15 +15,6 @@ public class Compute {
         return (double) Math.round(value * scale) / scale;
     }
     /**
-     * Helper function to invert value with precision
-     * @param value what to invert
-     * @param precision decimals
-     * @return inverted value 1/value
-     */
-    public static double invert(double value, int precision) {
-        return round(1/value,precision);
-    }
-    /**
      * Calculate the total of a list
      * @param values
      * @return sum
@@ -40,16 +31,16 @@ public class Compute {
      * @param precision
      * @return average
      */
-    public static double avgList(List<Double> values,int precision) {
+    public static double avgList(List<Double> values) {
         double a = 0;
         a = sumList(values)/values.size();
-        return round(a,precision);
+        return a;
     } 
-    public static double rssList(List<Double> x,List<Double> y,double aX, double aY, int precision) {
+    public static double rssList(List<Double> x,List<Double> y,double aX, double aY) {
         double r = 0;
         for(int i=0;i<x.size();i++)
-            r+=round((x.get(i)-aX)*(y.get(i)-aY),precision);
-        return round(r, precision);
+            r+=(x.get(i)-aX)*(y.get(i)-aY);
+        return r;
     }
     /**
      * Calculate the Total Sum of Squares of a List
@@ -57,12 +48,12 @@ public class Compute {
      * @param precision
      * @return tss
      */
-    public static double tssList(List<Double> values, int precision) {
-        double a = avgList(values, precision);
+    public static double tssList(List<Double> values) {
+        double a = avgList(values);
         double t = 0;
         for(int i=0;i<values.size();i++)
-            t+=round((values.get(i)-a)*(values.get(i)-a),precision);
-        return round(t, precision);
+            t+=(values.get(i)-a)*(values.get(i)-a);
+        return t;
     }
 
 }
