@@ -40,7 +40,7 @@ public class Compute {
      * @param precision
      * @return average
      */
-    public static double avgList(List<Double> values,int precision ) {
+    public static double avgList(List<Double> values,int precision) {
         double a = 0;
         a = sumList(values)/values.size();
         return round(a,precision);
@@ -48,7 +48,7 @@ public class Compute {
     public static double rssList(List<Double> x,List<Double> y,double aX, double aY, int precision) {
         double r = 0;
         for(int i=0;i<x.size();i++)
-            r+=(x.get(i)-aX)*(y.get(i)-aY);
+            r+=round((x.get(i)-aX)*(y.get(i)-aY),precision);
         return round(r, precision);
     }
     /**
@@ -61,7 +61,7 @@ public class Compute {
         double a = avgList(values, precision);
         double t = 0;
         for(int i=0;i<values.size();i++)
-            t+=(values.get(i)-a)*(values.get(i)-a);
+            t+=round((values.get(i)-a)*(values.get(i)-a),precision);
         return round(t, precision);
     }
 

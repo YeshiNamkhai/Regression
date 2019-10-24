@@ -32,7 +32,7 @@ Then computing for each row [TSS](https://en.wikipedia.org/wiki/Total_sum_of_squ
 | --- | --- | --- | --- |
 | sum | 184.0 | 1.7144 | 2212.2 |
 | avg | 11.5 | 0.1072 | 138.2625 |
-| tss | | 0.0489 | 5464.4575 |
+| tss | | 0.0489 | 5464.4574 |
 
 | rss |
 | --- |

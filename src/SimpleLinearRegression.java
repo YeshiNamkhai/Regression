@@ -21,8 +21,8 @@ class SimpleLinearRegression {
         double tssXinv = Compute.tssList(xInv,4);
         double rss = Compute.rssList(xInv,y,avgInvX,avgY,4);
 
-        double a = Compute.round(rss/tssXinv,4);
-        double b = Compute.round(avgY-avgInvX*a,4);
+        double a = Compute.round(rss/tssXinv,1);
+        double b = Compute.round(avgY-avgInvX*a,1);
 
         System.out.println();
         System.out.format("%10s %10s %10s\n","Age","1/age","Height");
