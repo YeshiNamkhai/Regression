@@ -82,13 +82,14 @@ class SimpleLinearRegression {
  
     public static void main(String[] args) throws IOException{
         
-        System.out.println("Demo Miu");
+        System.out.println("--Miu--");
         demoMiu();
         System.out.println();
-        
-        System.out.println("Demo Tea House");
+        /*
+        System.out.println("--Tea House--");
         demoTea();
         System.out.println();
+        */
     }
     
 }
