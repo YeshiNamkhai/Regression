@@ -40,12 +40,12 @@ Then computing for each row [TSS](https://en.wikipedia.org/wiki/Total_sum_of_squ
 
 | | coefficent |
 | --- | --- |
-| a | -326.3517 |  
-| b |  173.2474 |  
+| a | -326.4 |  
+| b |  173.3 |  
 
 | equation |
 | --- |
-| **y** = -326.3517**x** + 173.2474 |
+| **y** = -326.4**x** + 173.3 |
 
 ## Package
 The code that performs simple linear regression is organized into a package containg three classes: Compute, DataCSV and Draw.
