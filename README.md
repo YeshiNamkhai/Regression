@@ -1,7 +1,7 @@
 # Regression
 
 This is an implementation of *Simple Linear Regression* reading an input file in CSV format such as
-
+<small>
 | Age | Height |
 | --- | --- |
 | 4 | 100.1 |
@@ -21,14 +21,14 @@ This is an implementation of *Simple Linear Regression* reading an input file in
 | 18 | 155.3 |
 | 19 | 155.7 |
 | Graph it | ![chart](img/dispersion.png) |
-
+</small>
 ..and showing a dispersion plot to check whether is meaningful to look for an equation in the form **y=ax+b**. 
 
 <small>Where the variable **y** is indipendent and the variable  **x** is dipendent. In this equation the coefficent **a** is the regression and as usual gives the slope of the line.</small>
 
 Then computing for each row [TSS](https://en.wikipedia.org/wiki/Total_sum_of_squares) and [RSS](https://en.wikipedia.org/wiki/Residual_sum_of_squares).
 
-| | Age | 1/age | Height |
+| | Age | <sup>1</sup>/<sub>age</sub> | Height |
 | --- | --- | --- | --- |
 | sum | 184.0 | 1.7144 | 2212.2 |
 | avg | 11.5 | 0.1072 | 138.3 |
