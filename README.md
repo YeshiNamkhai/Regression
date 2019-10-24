@@ -55,7 +55,7 @@ The code that performs simple linear regression is organized into a package cont
 - Column calculations
     - sumList() column **sum**
     - avgList() column **average**
-    - tssList()  **T**otal **S**um of **S**quares
+    - ssdList()  **S**um of **S**quared  **D**eviations
     - rssList()  **R**esidual **S**um of **S**quares
 
 ### DataCSV

@@ -22,18 +22,18 @@ class SimpleLinearRegression {
         double avgX = Compute.avgList(x);
         double avgY = Compute.avgList(y);
         double avgInvX = Compute.avgList(xInv);
-        double tssInvX = Compute.tssList(xInv);
-        double tssY = Compute.tssList(y);
+        double ssdInvX = Compute.ssdList(xInv);
+        double ssdY = Compute.ssdList(y);
         double rss = Compute.rssList(xInv,y,avgInvX,avgY);
 
-        double a = rss/tssInvX;
+        double a = rss/ssdInvX;
         double b = avgY-avgInvX*a;
 
         System.out.println();
         System.out.format("%10s %10s %10s\n","Age","1/age","Height");
         System.out.format("sum %6s %10s %10s\n",sumX,Compute.round(sumInvX,4),sumY);
         System.out.format("avg %6s %10s %10s\n",Compute.round(avgX,1),Compute.round(avgInvX,4),Compute.round(avgY,1));
-        System.out.format("tss %17s %10s\n",Compute.round(tssInvX,4),Compute.round(tssY,4));
+        System.out.format("ssd %17s %10s\n",Compute.round(ssdInvX,4),Compute.round(ssdY,4));
         System.out.println();
         System.out.format("rss %17s\n",Compute.round(rss,4));
         System.out.format("a %19s\n",Compute.round(a,1));
@@ -56,18 +56,18 @@ class SimpleLinearRegression {
          double sumY = Compute.sumList(y);
          double avgX = Compute.avgList(x);
          double avgY = Compute.avgList(y);
-         double tssX = Compute.tssList(x);
-         double tssY = Compute.tssList(y);
+         double ssdX = Compute.ssdList(x);
+         double ssdY = Compute.ssdList(y);
          double rss = Compute.rssList(x,y,avgX,avgY);
  
-         double a = rss/tssX;
+         double a = rss/ssdX;
          double b = avgY-avgX*a;
 
          System.out.println();
          System.out.format("%10s %10s\n","Temp.","Icetea ord.s");
          System.out.format("sum %6s %10s\n",sumX,sumY);
          System.out.format("avg %6s %10s\n",Compute.round(avgX,1),Compute.round(avgY,1));
-         System.out.format("tss %6s %10s\n",Compute.round(tssX,1),Compute.round(tssY,1));
+         System.out.format("ssd %6s %10s\n",Compute.round(ssdX,1),Compute.round(ssdY,1));
          System.out.println();
          System.out.format("rss %17s\n",Compute.round(rss,1));
          System.out.format("a %19s\n",Compute.round(a,1));

@@ -43,12 +43,12 @@ public class Compute {
         return r;
     }
     /**
-     * Calculate the Total Sum of Squares of a List
+     * Calculate the Sum of Squares Deviations of a List
      * @param values
      * @param precision
      * @return tss
      */
-    public static double tssList(List<Double> values) {
+    public static double ssdList(List<Double> values) {
         double a = avgList(values);
         double t = 0;
         for(int i=0;i<values.size();i++)
