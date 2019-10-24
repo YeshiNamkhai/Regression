@@ -8,9 +8,9 @@ import slr.Draw;
 
 class SimpleLinearRegression {
  
-    public static void main(String[] args) throws IOException{
+    private static void demoMiu() throws IOException {
        DataCSV data = new DataCSV();
-        data.loadCSV("data.csv");
+        data.loadCSV("ageMiu.csv");
         data.printCSV();
         List<Double> x= new ArrayList<>(data.getIndexValues(0));
         List<Double> xInv= new ArrayList<>(data.getIndexValuesInverted(0));
@@ -26,8 +26,8 @@ class SimpleLinearRegression {
         double tssY = Compute.tssList(y);
         double rss = Compute.rssList(xInv,y,avgInvX,avgY);
 
-        double a = Compute.round(rss/tssInvX,1);
-        double b = Compute.round(avgY-avgInvX*a,1);
+        double a = rss/tssInvX;
+        double b = avgY-avgInvX*a;
 
         System.out.println();
         System.out.format("%10s %10s %10s\n","Age","1/age","Height");
@@ -36,14 +36,59 @@ class SimpleLinearRegression {
         System.out.format("tss %17s %10s\n",Compute.round(tssInvX,4),Compute.round(tssY,4));
         System.out.println();
         System.out.format("rss %17s\n",Compute.round(rss,4));
-        System.out.format("a %19s\n",a);
-        System.out.format("b %19s\n",b);
+        System.out.format("a %19s\n",Compute.round(a,1));
+        System.out.format("b %19s\n",Compute.round(b,1));
         System.out.println();
-        System.out.format("y = %sx + %s\n",a,b);
-        
+        System.out.format("y = %sx + %s\n",Compute.round(a,1),Compute.round(b,1));        
 
         Draw scat = new Draw();
-        String[] title = new String[] {"Dispersion Plot","Age","Height"};
-        scat.scatterPlot(data.getIndexValues(0),data.getIndexValues(1), title);
+        scat.scatterPlot(x,y, new String[] {"Dispersion Plot","Age","Height"});
     }
+
+    private static void demoTea() throws IOException {
+        DataCSV data = new DataCSV();
+         data.loadCSV("teaHouse.csv");
+         data.printCSV();
+         List<Double> x= new ArrayList<>(data.getIndexValues(1));
+         List<Double> y= new ArrayList<>(data.getIndexValues(2));
+ 
+         double sumX = Compute.sumList(x);
+         double sumY = Compute.sumList(y);
+         double avgX = Compute.avgList(x);
+         double avgY = Compute.avgList(y);
+         double tssX = Compute.tssList(x);
+         double tssY = Compute.tssList(y);
+         double rss = Compute.rssList(x,y,avgX,avgY);
+ 
+         double a = rss/tssX;
+         double b = avgY-avgX*a;
+
+         System.out.println();
+         System.out.format("%10s %10s\n","Temp.","Icetea ord.s");
+         System.out.format("sum %6s %10s\n",sumX,sumY);
+         System.out.format("avg %6s %10s\n",Compute.round(avgX,1),Compute.round(avgY,1));
+         System.out.format("tss %6s %10s\n",Compute.round(tssX,1),Compute.round(tssY,1));
+         System.out.println();
+         System.out.format("rss %17s\n",Compute.round(rss,1));
+         System.out.format("a %19s\n",Compute.round(a,1));
+         System.out.format("b %19s\n",Compute.round(b,1));
+         System.out.println();
+         System.out.format("y = %sx + %s\n",Compute.round(a,1),Compute.round(b,1));
+         
+ 
+         Draw scat = new Draw();
+         scat.scatterPlot(x,y,new String[] {"Dispersion Plot","Temperature","Icetea orders"});
+     }
+ 
+    public static void main(String[] args) throws IOException{
+        
+        System.out.println("Demo Miu");
+        demoMiu();
+        System.out.println();
+        
+        System.out.println("Demo Tea House");
+        demoTea();
+        System.out.println();
+    }
+    
 }
