@@ -14,7 +14,7 @@ public class Draw {
        // Customize Chart
         chart.getStyler().setDefaultSeriesRenderStyle(XYSeriesRenderStyle.Scatter);
        // Series
-        chart.addSeries("single point (1,1)", xData, yData); 
+        chart.addSeries(title[1]+" "+title[2], xData, yData); 
        // Show it
        new SwingWrapper(chart).displayChart();
     }
