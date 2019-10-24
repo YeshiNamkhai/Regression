@@ -40,8 +40,8 @@ Then computing for each row [TSS](https://en.wikipedia.org/wiki/Total_sum_of_squ
 
 | | coefficent |
 | --- | --- |
-| a | -326.4 |  
-| b |  173.3 |  
+| **a** <small>&sum;<sub>xy</sub> &sum;<sub>xx</sub></small> | -326.4 |
+| **b** <small><sub>avg</sub>Y-<sub>avg<sup>1</sup></sub>/<sub>age</sub>*a</small> |  173.3 |  
 
 | equation |
 | --- |
