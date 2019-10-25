@@ -35,7 +35,7 @@ class SimpleLinearRegression {
         data.compute(1, false, 2);
 
         System.out.println();
-        System.out.format("%10s %10s\n","Temp.","Icetea ord.s");
+        System.out.format("%10s %10s\n","Temp.","IceTea");
         System.out.format("sum %6s %10s\n",data.getSumX(0),data.getSumY(0));
         System.out.format("avg %6s %10s\n",data.getAvgX(1),data.getAvgY(1));
         System.out.format("ssd %6s %10s\n",data.getSsdX(1),data.getSsdY(1));
@@ -47,33 +47,26 @@ class SimpleLinearRegression {
         System.out.format("y = %sx + %s\n",data.getA(1),data.getB(1));
 
         System.out.println();
-        List<Double> yHat = new ArrayList<>(); 
-        List<Double> x = data.getX();
-        List<Double> y = data.getY();
+        //System.out.format("%10 %10 %10\n","Temp", "IceTea","Trend");
+        for(int i=0;i<data.getX().size();i++)            
+            System.out.format("%10s %10s %10s\n",data.getItemX(i),data.getItemY(i),data.getItemYhat(i));
 
-        for(int i=0;i<x.size();i++)
-            yHat.add(data.getA(0)*x.get(i)+data.getB(0));
-
-            System.out.format("%10s %10s %10s\n","Temp.","Act.","Ext.");
-
-        for(int i=0;i<yHat.size();i++)            
-        System.out.format("%10s %10s %10s\n",x.get(i),y.get(i),yHat.get(i));
-
-            Draw scat = new Draw();
-         scat.scatterPlot(x,y,new String[] {"Dispersion Plot","Temperature","Icetea orders"});
+        Draw scat = new Draw();
+        scat.scatterPlot(data.getX(),data.getY(),new String[] {"Dispersion Plot","Temperature","Icetea orders"});
      }
  
     public static void main(String[] args) throws IOException{
-        
+
+            
         System.out.println("--Miu--");
         demoMiu();
         System.out.println();
         
-    /*    
+        /*
         System.out.println("--Tea House--");
         demoTea();
         System.out.println();
-    */    
+        */
     }
     
 }

@@ -37,6 +37,8 @@ public class DataCSV {
     // Regression equation coefficents
     private double a;
     private double b;
+    // predictions
+    private List<Double> yHat;
 
     /**
      * initializes array of fields and values
@@ -164,17 +166,30 @@ public class DataCSV {
     }
     /**
      * Calculates the residual sum of squares
-     * @param x column X
-     * @param y column Y
+     * @param vX column X
+     * @param vY column Y
      * @param aX average of X
      * @param aY average of Y
      * @return RSS
      */
-    private double rssList(List<Double> x,List<Double> y,double aX, double aY) {
+    private double rssList(List<Double> vX,List<Double> vY,double aX, double aY) {
         double r = 0;
         for(int i=0;i<x.size();i++)
-            r+=(x.get(i)-aX)*(y.get(i)-aY);
+            r+=(vX.get(i)-aX)*(vY.get(i)-aY);
         return r;
+    }
+    /**
+     * Gives back ŷ 
+     * @param values column Y
+     * @param aC coefficent
+     * @param bC coefficent
+     * @return column y=ax+b
+     */
+    private List<Double> hatList(List<Double> values, double aC, double bC) {
+        List<Double> h = new ArrayList<>();
+        for(int i=0;i<y.size();i++)
+            h.add(aC*values.get(i)+bC);
+        return h;
     }
     /**
      * Helper method for rounding values
@@ -203,7 +218,35 @@ public class DataCSV {
      * @return column
      */
     public List<Double> getY() { return y;}
-    
+    /**
+     * Getter for ŷ
+     * @return column
+     */
+    public List<Double> getYhat() { return yHat;}    
+    /**
+     * Gives back a single value from column X
+     * @param i index
+     * @return value
+     */
+    public double getItemX(int i) { return x.get(i);}
+    /**
+     * Gives back a single value from column Y
+     * @param i index
+     * @return value
+     */
+    public double getItemY(int i) { return y.get(i);}
+   /**
+     * Gives back a single value from column 1/X
+     * @param i index
+     * @return value
+     */
+    public double getItemInvX(int i) { return invX.get(i);}
+   /**
+     * Gives back a single value from y hat
+     * @param i index
+     * @return value
+     */
+    public double getItemYhat(int i) { return yHat.get(i);}
     /**
      * Getter for Sum of X
      * @param p decimals
@@ -299,11 +342,14 @@ public class DataCSV {
             sumInvX = sumList(invX);
             ssdX = ssdList(invX,avgInvX);
             rss = rssList(invX,y,avgInvX,avgY);
+            a = rss/ssdX;
+            b = avgY-avgInvX*a;
         } else {
             ssdX = ssdList(x,avgX);
-            rss = rssList(x,y,avgInvX,avgY);
+            rss = rssList(x,y,avgX,avgY);
+            a = rss/ssdX;
+            b = avgY-avgX*a;
         }
-        a = rss/ssdX;
-        b = avgY-avgInvX*a;
+        yHat = hatList(x,a,b);
     }
 }
