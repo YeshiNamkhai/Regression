@@ -65,8 +65,8 @@ class SimpleLinearRegression {
 
         System.out.println();
         System.out.format("%20s\n","Regression");
-        System.out.format("R %19s\n",data.getR(4));
-        System.out.format("R2 %18s\n",data.getR2(4));
+        System.out.format("r %19s\n",data.getR(4));
+        System.out.format("r2 %18s\n",data.getR2(4));
 
         Draw scat = new Draw();
         scat.scatterPlot(data.getX(),data.getY(),new String[] {"Dispersion Plot","Temperature","Icetea orders"});
