@@ -95,6 +95,7 @@ The code that performs simple linear regression is organized into a package cont
     - ssdX, ssdY    **S**um of **S**quared  **D**eviations
     - rss  **R**esidual **S**um of **S**quares
     - a, b  coefficents of y=**a**x+**b**
+    - R, R<sup>2</sup>  **regression** coefficent
 - *Methods* (private)
     - getIndexValue()
     - getIndexValueInverted()
