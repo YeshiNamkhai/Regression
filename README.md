@@ -50,17 +50,27 @@ Then computing for each row [TSS](https://en.wikipedia.org/wiki/Total_sum_of_squ
 ## Package
 The code that performs simple linear regression is organized into a package containg three classes: Compute, DataCSV and Draw.
 
-### Compute
-- round()   **round with precision**
-- Column calculations
+### DataCSV
+- load()    read **CSV**
+- show()    prints loaded **data**
+- compute() **execute** linear regression
+- *Getters* (public)
+    - x **independent** variable list
+    - invX  **1/X** (when needed)
+    - y **dependent** variable list
+    - sumX, sumInvX, sumY   list **sum**
+    - avgX, avgInvX, avgY   list **average**
+    - ssdX, ssdY    **S**um of **S**quared  **D**eviations
+    - rss  **R**esidual **S**um of **S**quares
+    - a, b  coefficents of y=**a**x+**b**
+- *Methods* (private)
+    - getIndexValue()
+    - getIndexValueInverted()
+    - round()   **round with precision**
     - sumList() column **sum**
     - avgList() column **average**
     - ssdList()  **S**um of **S**quared  **D**eviations
     - rssList()  **R**esidual **S**um of **S**quares
-
-### DataCSV
-- getIndexValue()
-- getIndexValueInverted()
 
 ### Draw
 - scatterPlot()
