@@ -13,22 +13,28 @@ import java.util.List;
  * method compute() that fills internal vars accebiles by getters.
  */
 public class DataCSV {
-
+    // constants
     private static final String COMMA_DELIMITER = ",";
+    // loaded csv organized
     private List<List<String>> fields;
     private List<List<Double>> values;
+    // columns X, 1/X and Y
     private List<Double> x;
     private List<Double> invX;
     private List<Double> y;
+    // Column sums
     private double sumX;
     private double sumInvX;
     private double sumY;
+    // Column averages
     private double avgX;
     private double avgInvX;
     private double avgY;
+    // Regression calculations
     private double rss;
     private double ssdX;
     private double ssdY;
+    // Regression equation coefficents
     private double a;
     private double b;
 
@@ -123,16 +129,31 @@ public class DataCSV {
         }
         return d;
     }
-    
+    /**
+     * Calculates the sum
+     * @param values
+     * @return column sum
+     */
     private double sumList(List<Double> values) {
         double s = 0;
         for(int i=0;i<values.size();i++)
             s+=values.get(i);
         return s;
     }
+    /**
+     * Calculates the average
+     * @param values
+     * @return column average
+     */
     private double avgList(List<Double> values) {
         return sumList(values)/values.size();
-    } 
+    }
+    /**
+     * Calculate the sum of the squared deviations
+     * @param values
+     * @param avg
+     * @return SSD
+     */ 
     private double ssdList(List<Double> values, double avg) {
         double t = 0;
         for(int i=0;i<values.size();i++) {
@@ -141,31 +162,113 @@ public class DataCSV {
         }
         return t;
     }
+    /**
+     * Calculates the residual sum of squares
+     * @param x column X
+     * @param y column Y
+     * @param aX average of X
+     * @param aY average of Y
+     * @return RSS
+     */
     private double rssList(List<Double> x,List<Double> y,double aX, double aY) {
         double r = 0;
         for(int i=0;i<x.size();i++)
             r+=(x.get(i)-aX)*(y.get(i)-aY);
         return r;
     }
+    /**
+     * Helper method for rounding values
+     * @param value
+     * @param precision
+     * @return rounded value
+     */
     private double round(double value, int precision) {
         if(precision>0) {
             int scale = (int) Math.pow(10, precision);
             return (double) Math.round(value * scale) / scale;
         } else return value;
     }
+    /**
+     * Getter for X
+     * @return column
+     */
     public List<Double> getX() { return x;}
+    /**
+     * Getter for 1/X
+     * @return column
+     */
     public List<Double> getInvX() { return invX;}
+    /**
+     * Getter for Y
+     * @return column
+     */
     public List<Double> getY() { return y;}
+    
+    /**
+     * Getter for Sum of X
+     * @param p decimals
+     * @return sum of column X
+     */
     public double getSumX(int p) { return round(sumX,p);}
+    /**
+     * Getter for Sum of Y
+     * @param p decimals
+     * @return sum of column Y
+     */
     public double getSumY(int p) { return round(sumY,p);}
+    /**
+     * Getter of Sum of 1/X
+     * @param p decimals
+     * @return sum of column X
+     */
     public double getSumInvX(int p) { return round(sumInvX,p);}
+    /**
+     * Getter for Average of X
+     * @param p decimals
+     * @return average of column X
+     */
     public double getAvgX(int p) { return round(avgX,p);}
+    /**
+     * Getter for Average of Y
+     * @param p decimals
+     * @return average of column Y
+     */
     public double getAvgY(int p) { return round(avgY,p);}
+    /**
+     * Getter of Average of 1/X
+     * @param p decimals
+     * @return average of column 1/X
+     */
     public double getAvgInvX(int p) { return round(avgInvX,p);}
+    /**
+     * Getter of Sum of Squared Deviations
+     * @param p decimals
+     * @return SSD of column X
+     */
     public double getSsdX(int p) { return round(ssdX,p);}
+    /**
+     * Getter of Sum of Squared Deviations
+     * @param p decimals
+     * @return SSD of column Y
+     */
     public double getSsdY(int p) { return round(ssdY,p);}
+    /**
+     * Getter of Residual Sum of Squares
+     * @param p decimals
+     * @return RSS
+     */
     public double getRss(int p) { return round(rss,p);}
+    /**
+     * Getter for coefficent A
+     * @param p decimals
+     * @return A
+     */
     public double getA(int p) { return round(a,p);}
+    /**
+     * Getter for coefficent B
+     * @param p decimals
+     * @return B
+     */
     public double getB(int p) { return round(b,p);}
     /**
      * Calculate linear regression and assign internal variables

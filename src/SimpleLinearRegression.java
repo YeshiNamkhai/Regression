@@ -30,21 +30,21 @@ class SimpleLinearRegression {
      }
      private static void demoTea() throws IOException {
         DataCSV data = new DataCSV();
-         data.load("teaHouse.csv");
-         data.show();
-         data.compute(1, false, 2);
+        data.load("teaHouse.csv");
+        data.show();
+        data.compute(1, false, 2);
 
-         System.out.println();
-         System.out.format("%10s %10s\n","Temp.","Icetea ord.s");
-         System.out.format("sum %6s %10s\n",data.getSumX(0),data.getSumY(0));
-         System.out.format("avg %6s %10s\n",data.getAvgX(1),data.getAvgY(1));
-         System.out.format("ssd %6s %10s\n",data.getSsdX(1),data.getSsdY(1));
-         System.out.println();
-         System.out.format("rss %17s\n",data.getRss(1));
-         System.out.format("a %19s\n",data.getA(1));
-         System.out.format("b %19s\n",data.getB(1));
-         System.out.println();
-         System.out.format("y = %sx + %s\n",data.getA(1),data.getB(1));
+        System.out.println();
+        System.out.format("%10s %10s\n","Temp.","Icetea ord.s");
+        System.out.format("sum %6s %10s\n",data.getSumX(0),data.getSumY(0));
+        System.out.format("avg %6s %10s\n",data.getAvgX(1),data.getAvgY(1));
+        System.out.format("ssd %6s %10s\n",data.getSsdX(1),data.getSsdY(1));
+        System.out.println();
+        System.out.format("rss %17s\n",data.getRss(1));
+        System.out.format("a %19s\n",data.getA(1));
+        System.out.format("b %19s\n",data.getB(1));
+        System.out.println();
+        System.out.format("y = %sx + %s\n",data.getA(1),data.getB(1));
 
         System.out.println();
         List<Double> yHat = new ArrayList<>(); 
@@ -69,11 +69,11 @@ class SimpleLinearRegression {
         demoMiu();
         System.out.println();
         
-        /*
+    /*    
         System.out.println("--Tea House--");
         demoTea();
         System.out.println();
-        */
+    */    
     }
     
 }
