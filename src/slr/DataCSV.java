@@ -5,6 +5,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.lang.Math;
 
 /**
  * This is the main class to load data from CVS file (Comma Separated Values) line by
@@ -37,8 +38,12 @@ public class DataCSV {
     // Regression equation coefficents
     private double a;
     private double b;
+    private double r;
     // predictions
     private List<Double> yHat;
+    private double avgHat;
+    private double spHat;
+    private double ssdHat;
 
     /**
      * initializes array of fields and values
@@ -192,6 +197,17 @@ public class DataCSV {
         return h;
     }
     /**
+     * Calculates the sum of two lists
+     * @param values
+     * @return difference 
+     */
+    private double hatSumProd(List<Double> aL,List<Double> bL, double aA, double bA) {
+        double s = 0;
+        for(int i=0;i<aL.size();i++)
+            s+=(aL.get(i)-aA)*(bL.get(i)-bA);
+        return s;
+    }
+    /**
      * Helper method for rounding values
      * @param value
      * @param precision
@@ -240,13 +256,14 @@ public class DataCSV {
      * @param i index
      * @return value
      */
-    public double getItemInvX(int i) { return invX.get(i);}
-   /**
-     * Gives back a single value from y hat
+    public double getItemInvX(int i, int p) { return round(invX.get(i),p);}
+    /**
+     * Gives back a single value from ŷ
      * @param i index
+     * @param p decimals
      * @return value
      */
-    public double getItemYhat(int i) { return yHat.get(i);}
+    public double getItemYhat(int i, int p) { return round(yHat.get(i),p);}
     /**
      * Getter for Sum of X
      * @param p decimals
@@ -314,6 +331,36 @@ public class DataCSV {
      */
     public double getB(int p) { return round(b,p);}
     /**
+     * Getter for sum of products
+     * @param p decimals
+     * @return (y-yHat)(yHat-avgYhat)
+     */
+    public double getSpHat(int p) { return round(spHat,p);}
+    /**
+     * Getter for average of Hat
+     * @param p decimals
+     * @return average of column yHat
+     */
+    public double getAvgHat(int p) { return round(avgHat,p);}
+    /**
+     * Getter of Sum of Squared Deviations
+     * @param p decimals
+     * @return SSD of column Hat
+     */
+    public double getSsdHat(int p) { return round(ssdHat,p);}
+    /**
+     * Getter for coefficent R
+     * @param p decimals
+     * @return Regression coefficent
+     */
+    public double getR(int p) { return round(r,p);}
+   /**
+     * Getter for coefficent R2
+     * @param p decimals
+     * @return Regression coefficent
+     */
+    public double getR2(int p) { return round(r*r,p);}
+    /**
      * Calculate linear regression and assign internal variables
      * @param iX index of independent variable
      * @param inv true if 1/X is required
@@ -344,12 +391,22 @@ public class DataCSV {
             rss = rssList(invX,y,avgInvX,avgY);
             a = rss/ssdX;
             b = avgY-avgInvX*a;
+            yHat = hatList(invX,a,b);
         } else {
             ssdX = ssdList(x,avgX);
             rss = rssList(x,y,avgX,avgY);
             a = rss/ssdX;
             b = avgY-avgX*a;
+            yHat = hatList(x,a,b);
         }
-        yHat = hatList(x,a,b);
+        avgHat = avgList(yHat);
+        // the average of regression function has to be same as Y's average
+        if(round(avgHat,15)!=round(avgY,15)) {
+            System.out.println("Error: something went wrong.");
+            System.exit(1);
+        }
+        spHat = hatSumProd(y,yHat,avgY,avgHat);
+        ssdHat = ssdList(yHat,avgHat);
+        r = spHat/Math.sqrt(ssdY*ssdHat);
     }
 }

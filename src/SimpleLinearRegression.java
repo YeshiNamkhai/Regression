@@ -25,6 +25,17 @@ class SimpleLinearRegression {
         System.out.println();
         System.out.format("y = %sx + %s\n",data.getA(1),data.getB(1));        
 
+        System.out.println();
+        System.out.format("%20s\n","Hat");
+        System.out.format("avg %17s\n",data.getAvgHat(1));
+        System.out.format("ssd %17s\n",data.getSsdHat(1));
+        System.out.format("sum prod %12s\n",data.getSpHat(1));
+
+        System.out.println();
+        System.out.format("%20s\n","Regression");
+        System.out.format("r %19s\n",data.getR(4));
+        System.out.format("r2 %18s\n",data.getR2(4));
+
         Draw scat = new Draw();
         scat.scatterPlot(data.getX(),data.getY(), new String[] {"Dispersion Plot","Age","Height"});
      }
@@ -47,9 +58,15 @@ class SimpleLinearRegression {
         System.out.format("y = %sx + %s\n",data.getA(1),data.getB(1));
 
         System.out.println();
-        //System.out.format("%10 %10 %10\n","Temp", "IceTea","Trend");
-        for(int i=0;i<data.getX().size();i++)            
-            System.out.format("%10s %10s %10s\n",data.getItemX(i),data.getItemY(i),data.getItemYhat(i));
+        System.out.format("%20s\n","Hat");
+        System.out.format("avg %17s\n",data.getAvgHat(1));
+        System.out.format("ssd %17s\n",data.getSsdHat(1));
+        System.out.format("sum prod %12s\n",data.getSpHat(1));
+
+        System.out.println();
+        System.out.format("%20s\n","Regression");
+        System.out.format("r %19s\n",data.getR(4));
+        System.out.format("r2 %18s\n",data.getR2(4));
 
         Draw scat = new Draw();
         scat.scatterPlot(data.getX(),data.getY(),new String[] {"Dispersion Plot","Temperature","Icetea orders"});
@@ -61,7 +78,7 @@ class SimpleLinearRegression {
         System.out.println("--Miu--");
         demoMiu();
         System.out.println();
-        
+            
         /*
         System.out.println("--Tea House--");
         demoTea();
