@@ -26,13 +26,13 @@ This is an implementation of *Simple Linear Regression* reading an input file in
 
 <small>Where the variable **y** is indipendent and the variable  **x** is dipendent. In this equation the coefficent **a** is the regression and as usual gives the slope of the line.</small>
 
-Then computing for each row [TSS](https://en.wikipedia.org/wiki/Total_sum_of_squares) and [RSS](https://en.wikipedia.org/wiki/Residual_sum_of_squares).
+Then computing for each row [SSD](https://www.investopedia.com/terms/s/sum-of-squares.asp) and [RSS](https://en.wikipedia.org/wiki/Residual_sum_of_squares).
 
 | | Age | <sup>1</sup>/<sub>age</sub> | Height |
 | --- | --- | --- | --- |
 | sum | 184.0 | 1.7144 | 2212.2 |
 | avg | 11.5 | 0.1072 | 138.3 |
-| tss | | 0.0489 | 5464.4575 |
+| ssd | | 0.0489 | 5464.4575 |
 
 | rss |
 | --- |
