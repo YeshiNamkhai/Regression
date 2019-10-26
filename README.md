@@ -76,8 +76,8 @@ Simple as that
 >        System.out.format("r %19s\n",data.getR(4));
 >        System.out.format("r2 %18s\n",data.getR2(4));
 
->        Draw scat = new Draw();
->        scat.scatterPlot(data.getX(),data.getY(), new String[] {"Dispersion Plot","Age","Height"});
+>        Draw chart = new Draw("DEMO: Miu","Age","Height");
+>        chart.scatterPlot(data.getX(),data.getY(),data.getYhat());
 
 ## Package
 The code that performs simple linear regression is organized into a package containg three classes: Compute, DataCSV and Draw.
