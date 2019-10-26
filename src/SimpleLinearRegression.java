@@ -1,6 +1,4 @@
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 import slr.DataCSV;
 import slr.Draw;
@@ -36,8 +34,9 @@ class SimpleLinearRegression {
         System.out.format("r %19s\n",data.getR(4));
         System.out.format("r2 %18s\n",data.getR2(4));
 
-        Draw scat = new Draw();
-        scat.scatterPlot(data.getX(),data.getY(), new String[] {"Dispersion Plot","Age","Height"});
+        Draw chart = new Draw("DEMO: Miu","Age","Height");
+//        chart.scatterPlot(data.getX(),data.getY());
+        chart.scatterPlot(data.getX(),data.getY(),data.getYhat());
      }
      private static void demoTea() throws IOException {
         DataCSV data = new DataCSV();
@@ -68,8 +67,9 @@ class SimpleLinearRegression {
         System.out.format("r %19s\n",data.getR(4));
         System.out.format("r2 %18s\n",data.getR2(4));
 
-        Draw scat = new Draw();
-        scat.scatterPlot(data.getX(),data.getY(),new String[] {"Dispersion Plot","Temperature","Icetea orders"});
+        Draw chart = new Draw("DEMO: Tea Room", "Temperature", "Icetea ord.s");
+//        chart.scatterPlot(data.getX(),data.getY());
+        chart.scatterPlot(data.getX(),data.getY(),data.getYhat());
      }
  
     public static void main(String[] args) throws IOException{
