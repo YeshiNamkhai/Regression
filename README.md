@@ -20,7 +20,7 @@ This is an implementation of *Simple Linear Regression* reading an input file in
 | 17 | 155.1 |
 | 18 | 155.3 |
 | 19 | 155.7 |
-| Graph it | ![dispersion chart](img/chart_Miu.PNG | width=80) |
+| Graph it | <img src="img/chart_Miu.PNG" width="200" /> |
 
 ..and showing a dispersion plot to check whether is meaningful to look for an equation in the form **y=ax+b**. 
 
@@ -46,7 +46,7 @@ Then computing for each row [SSD](https://www.investopedia.com/terms/s/sum-of-sq
 | equation |
 | --- |
 | **y** = -326.4**x** + 173.3 |
-| ![regression chart](img/regl_Miu.PNG) |
+| <img src="img/regl_Miu.PNG" width="200" /> |
 
 | regression coefficent |
 | --- |
