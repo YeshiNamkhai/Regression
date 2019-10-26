@@ -45,7 +45,7 @@ Then computing for each row [SSD](https://www.investopedia.com/terms/s/sum-of-sq
 
 | equation | chart | <sup>1</sup>/<sub>age</sub> |
 | --- | --- | --- |
-| **y** = -326.4**x** + 173.3 | <img src="img/regl_Miu.PNG" width="200" /> | <img src="img/regl_1_over_X_Miu.PNG" width="200" />
+| **y** = -326.4**x** + 173.3 | <img src="img/regl_Miu.PNG" width="200" /> | <img src="img/regl_1_over_age_Miu.PNG" width="200" />
 
 | regression coefficent |
 | --- |
