@@ -54,12 +54,12 @@ Then computing for each row [SSD](https://www.investopedia.com/terms/s/sum-of-sq
 
 
 ## Usage
-Run like any Java program 
-> java SimpleLinearRegression ageMiu.csv 0 1 true
+Run like any Java program, specify the data file **.csv**, X column (**0** default), Y column (**1** default), **true** for 1/X (when X is not linear).
+> java *SimpleLinearRegression* **ageMiu.csv 0 1 true**
 
-> java SimpleLinearRegression teaHouse.csv 1 2 false
+> java *SimpleLinearRegression* teaHouse.csv **1 2**
 
-> java SimpleLinearRegression airPreassure
+> java *SimpleLinearRegression* **airPreassure.csv**
 
 ## Package
 The code that performs simple linear regression is organized into a package containg two classes: DataCSV and Draw.
