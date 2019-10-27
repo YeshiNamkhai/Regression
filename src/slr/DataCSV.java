@@ -118,7 +118,6 @@ public class DataCSV {
         }
         return d;
     }
-
     /**
      * Gives back a single set of values
      * @param i index
@@ -219,6 +218,12 @@ public class DataCSV {
             return (double) Math.round(value * scale) / scale;
         } else return value;
     }
+   
+    /**
+     * Getter for fields name
+     * @return column
+     */
+    public String getFieldName(int i) { return fields.get(0).get(i);}
     /**
      * Getter for X
      * @return column

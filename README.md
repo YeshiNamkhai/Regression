@@ -53,34 +53,16 @@ Then computing for each row [SSD](https://www.investopedia.com/terms/s/sum-of-sq
 | **R**<sup>2</sup> = 0.9537 |
 
 
-## Use
-Simple as that
->        DataCSV data = new DataCSV();
->        data.load("ageMiu.csv");
->        data.show();
->        data.compute(0,true,1);
+## Usage
+Run like any Java program 
+> java SimpleLinearRegression ageMiu.csv 0 1 true
 
->        System.out.format("%10s %10s %10s\n","Age","1/age","Height");
->        System.out.format("sum %6s %10s %10s\n",data.getSumX(0),data.getSumInvX(4),data.getSumY(0));
->        System.out.format("avg %6s %10s %10s\n",data.getAvgX(1),data.getAvgInvX(4),data.getAvgY(1));
->        System.out.format("ssd %17s %10s\n",data.getSsdX(4),data.getSsdY(4));
->        System.out.println();
->        System.out.format("rss %17s\n",data.getRss(4));
->        System.out.format("a %19s\n",data.getA(1));
->        System.out.format("b %19s\n",data.getB(1));
->        System.out.println();
->        System.out.format("y = %sx + %s\n",data.getA(1),data.getB(1));        
+> java SimpleLinearRegression teaHouse.csv 1 2 false
 
->        System.out.println();
->        System.out.format("%20s\n","Regression");
->        System.out.format("r %19s\n",data.getR(4));
->        System.out.format("r2 %18s\n",data.getR2(4));
-
->        Draw chart = new Draw("DEMO: Miu","Age","Height");
->        chart.scatterPlot(data.getX(),data.getY(),data.getYhat());
+> java SimpleLinearRegression airPreassure
 
 ## Package
-The code that performs simple linear regression is organized into a package containg three classes: Compute, DataCSV and Draw.
+The code that performs simple linear regression is organized into a package containg two classes: DataCSV and Draw.
 
 ### DataCSV
 - load()    read **CSV**
