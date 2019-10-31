@@ -32,6 +32,9 @@ Then computing for each row [SSD](https://www.investopedia.com/terms/s/sum-of-sq
 | --- | --- | --- | --- |
 | sum | 184.0 | 1.7144 | 2212.2 |
 | avg | 11.5 | 0.1072 | 138.3 |
+| min | 4.0 | 0.0526 | 100.1 |
+| max | 19.0 | 0.25 | 155.7 |
+| med | 11.5 | 0.0871 | 146.3 |
 | ssd | | 0.0489 | 5464.4575 |
 
 | rss |
