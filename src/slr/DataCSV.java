@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.lang.Math;
 
@@ -145,6 +146,49 @@ public class DataCSV {
         for(int i=0;i<values.size();i++)
             s+=values.get(i);
         return s;
+    }
+    /**
+     * Finds the lowest value
+     * @param values
+     * @return min
+     */
+    private double minList(List<Double> values) {
+        int l=values.size();
+        double[] v = new double[l];
+        for(int i=0;i<l;i++)
+            v[i]=values.get(i);
+        Arrays.sort(v);
+        return v[0];
+    }
+    /**
+     * Finds the highest value
+     * @param values
+     * @return max
+     */
+    private double maxList(List<Double> values) {
+        int l=values.size();
+        double[] v = new double[l];
+        for(int i=0;i<l;i++)
+            v[i]=values.get(i);
+        Arrays.sort(v);
+        return v[l-1];
+    }
+    /**
+     * Gives back the middle value
+     * @param values
+     * @return median
+     */    
+    private double medianList(List<Double> values) {
+        int l=values.size();
+        double[] v = new double[l];
+        for(int i=0;i<l;i++)
+            v[i]=values.get(i);
+        Arrays.sort(v);
+        if(l%2==0) { //even
+            return (double)(v[l/2]+v[l/2-1])/2;
+        } else { //odd
+            return v[l/2];
+        }
     }
     /**
      * Calculates the average

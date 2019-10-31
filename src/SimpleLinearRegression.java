@@ -28,7 +28,7 @@ class SimpleLinearRegression {
 
         } else {
             System.out.println();
-            System.out.format("%10s %10s\n","Temp.","IceTea");
+            System.out.format("%10s %10s\n",data.getFieldName(x),data.getFieldName(y));
             System.out.format("sum %6s %10s\n",data.getSumX(0),data.getSumY(0));
             System.out.format("avg %6s %10s\n",data.getAvgX(1),data.getAvgY(1));
             System.out.format("ssd %6s %10s\n",data.getSsdX(1),data.getSsdY(1));
@@ -54,7 +54,10 @@ class SimpleLinearRegression {
         System.out.format("r2 %18s\n",data.getR2(4));
         
         Draw chart = new Draw("Plot",data.getFieldName(x),data.getFieldName(y));
-        chart.scatterPlot(data.getX(),data.getY(),data.getYhat());
+        if(inv)
+            chart.scatterPlot(data.getInvX(),data.getY(),data.getYhat());
+        else
+            chart.scatterPlot(data.getX(),data.getY(),data.getYhat());
     }
     /**
      * Usage:  specify data file (*.csv), 
@@ -73,19 +76,19 @@ class SimpleLinearRegression {
         int x=0;
         if(args.length>1) {
             try { x = Integer.parseInt(args[1]);}
-            catch (NumberFormatException e) {}
+            catch (NumberFormatException e) { x=0;}
         }
         // check column number Y
         int y=1;
         if(args.length>2) {
             try { y = Integer.parseInt(args[2]);}
-            catch (NumberFormatException e) {}
+            catch (NumberFormatException e) { y=1;}
         }
         // check if 1/X is needed
         boolean inv=false;
         if(args.length>3) {
             try { inv = Boolean.parseBoolean(args[3]); }
-            catch (Exception e) {}
+            catch (Exception e) { inv=false;}
         }
         //execute linear regression
         System.out.println();   
