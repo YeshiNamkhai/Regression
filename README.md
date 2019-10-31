@@ -50,10 +50,21 @@ Then computing for each row [SSD](https://www.investopedia.com/terms/s/sum-of-sq
 | --- | --- | --- |
 | **y** = -326.4**x** + 173.3 | <img src="img/regl_Miu.PNG" width="200" /> | <img src="img/regl_1_over_age_Miu.PNG" width="200" />
 
+| | ŷ |
+| --- | --- |
+| avg | 138.3 |
+| ssd | 5211.7 |
+| Syŷ | 5211.7 |
+
 | regression coefficent |
 | --- |
 | **R** = 0.9766 |
 | **R**<sup>2</sup> = 0.9537 |
+
+| | confidence |
+| --- | --- |
+| Se | 252.8 |
+| sigma | 4.2 |
 
 In this specific case there is one and only Miu, so with such regression coefficent we can be confident to make good predictions about her height in the future. 
 

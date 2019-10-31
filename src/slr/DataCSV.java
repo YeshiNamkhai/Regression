@@ -46,15 +46,17 @@ public class DataCSV {
     private double rss;
     private double ssdX;
     private double ssdY;
+    private double eSum;
     // Regression equation coefficents
-    private double a;
-    private double b;
-    private double r;
-    // predictions
-    private List<Double> yHat;
-    private double avgHat;
-    private double spHat;
-    private double ssdHat;
+    private double a;  //y=ax+b
+    private double b;  //y=ax+b
+    private double r;  //R
+    // check and predictions
+    private List<Double> yHat; //ŷ
+    private double avgHat; //avgŷ
+    private double syHat;  //Syŷ
+    private double ssdHat; //
+    private double sigma;  
 
     /**
      * initializes array of fields and values
@@ -250,6 +252,20 @@ public class DataCSV {
         return h;
     }
     /**
+     * Gives back y-ŷ 
+     * @param values column Y
+     * @param aC coefficent
+     * @param bC coefficent
+     * @return column y-ŷ
+     */
+    private double eSumList(List<Double> vY, List<Double> vHat) {
+        double e = 0;
+        for(int i=0;i<vY.size();i++) {
+            e+=(vY.get(i)-vHat.get(i))*(vY.get(i)-vHat.get(i));
+        }
+        return e;
+    }
+    /**
      * Calculates the sum of two lists
      * @param values
      * @return difference 
@@ -430,6 +446,12 @@ public class DataCSV {
      */
     public double getRss(int p) { return round(rss,p);}
     /**
+     * Getter of Sum E
+     * @param p decimals
+     * @return Se
+     */
+    public double getEsum(int p) { return round(eSum,p);}
+    /**
      * Getter for coefficent A
      * @param p decimals
      * @return A
@@ -446,7 +468,7 @@ public class DataCSV {
      * @param p decimals
      * @return (y-yHat)(yHat-avgYhat)
      */
-    public double getSpHat(int p) { return round(spHat,p);}
+    public double getSyHat(int p) { return round(syHat,p);}
     /**
      * Getter for average of Hat
      * @param p decimals
@@ -471,6 +493,12 @@ public class DataCSV {
      * @return Regression coefficent
      */
     public double getR2(int p) { return round(r*r,p);}
+    /**
+     * Getter of Variance Test
+     * @param p decimals
+     * @return varTest
+     */
+    public double getSigma(int p) { return round(sigma,p);}
     /**
      * Calculate linear regression and assign internal variables
      * @param iX index of independent variable
@@ -525,8 +553,10 @@ public class DataCSV {
             System.out.println("Error: something went wrong.");
             System.exit(1);
         }
-        spHat = hatSumProd(y,yHat,avgY,avgHat);
+        syHat = hatSumProd(y,yHat,avgY,avgHat);
         ssdHat = ssdList(yHat,avgHat);
-        r = spHat/Math.sqrt(ssdY*ssdHat);
+        r = syHat/Math.sqrt(ssdY*ssdHat);
+        eSum = eSumList(y,yHat);
+        sigma = Math.sqrt(eSum/(y.size()-2));
     }
 }

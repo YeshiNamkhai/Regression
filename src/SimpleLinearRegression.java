@@ -52,16 +52,21 @@ class SimpleLinearRegression {
         System.out.format("%20s\n","Hat");
         System.out.format("avg %17s\n",data.getAvgHat(1));
         System.out.format("ssd %17s\n",data.getSsdHat(1));
-        System.out.format("sum prod %12s\n",data.getSpHat(1));
+        System.out.format("Syŷ %17s\n",data.getSyHat(1));
 
         System.out.println();
         System.out.format("%20s\n","Regression");
-        System.out.format("r %19s\n",data.getR(4));
-        System.out.format("r2 %18s\n",data.getR2(4));
+        System.out.format("R %19s\n",data.getR(4));
+        System.out.format("R2 %18s\n",data.getR2(4));
+
+        System.out.println();
+        System.out.format("%20s\n","Confidence");
+        System.out.format("Se %18s\n",data.getEsum(1));
+        System.out.format("sigma %15s\n",data.getSigma(1));
         
         Draw chart = new Draw("Plot",data.getFieldName(x),data.getFieldName(y));
         if(inv)
-            chart.scatterPlot(data.getInvX(),data.getY(),data.getYhat());
+            chart.scatterPlot(data.getX(),data.getY(),data.getYhat(),data.getInvX());
         else
             chart.scatterPlot(data.getX(),data.getY(),data.getYhat());
     }
