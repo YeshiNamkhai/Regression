@@ -24,6 +24,9 @@ class SimpleLinearRegression {
             System.out.format("%10s %10s %10s\n",data.getFieldName(x),"1/"+data.getFieldName(x),data.getFieldName(y));
             System.out.format("sum %6s %10s %10s\n",data.getSumX(0),data.getSumInvX(4),data.getSumY(0));
             System.out.format("avg %6s %10s %10s\n",data.getAvgX(1),data.getAvgInvX(4),data.getAvgY(1));
+            System.out.format("min %6s %10s %10s\n",data.getMinX(),data.getMinInvX(4),data.getMinY());
+            System.out.format("max %6s %10s %10s\n",data.getMaxX(),data.getMaxInvX(4),data.getMaxY());
+            System.out.format("med %6s %10s %10s\n",data.getMedX(1),data.getMedInvX(4),data.getMedY(1));
             System.out.format("ssd %17s %10s\n",data.getSsdX(4),data.getSsdY(4));
 
         } else {
@@ -31,6 +34,9 @@ class SimpleLinearRegression {
             System.out.format("%10s %10s\n",data.getFieldName(x),data.getFieldName(y));
             System.out.format("sum %6s %10s\n",data.getSumX(0),data.getSumY(0));
             System.out.format("avg %6s %10s\n",data.getAvgX(1),data.getAvgY(1));
+            System.out.format("min %6s %10s\n",data.getMinX(),data.getMinY());
+            System.out.format("max %6s %10s\n",data.getMaxX(),data.getMaxY());
+            System.out.format("med %6s %10s\n",data.getMedX(1),data.getMedY(1));
             System.out.format("ssd %6s %10s\n",data.getSsdX(1),data.getSsdY(1));
         }
         

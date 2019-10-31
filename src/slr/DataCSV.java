@@ -32,6 +32,16 @@ public class DataCSV {
     private double avgX;
     private double avgInvX;
     private double avgY;
+    // Column min/max/median
+    private double minX;
+    private double minInvX;
+    private double minY;
+    private double maxX;
+    private double maxInvX;
+    private double maxY;
+    private double medX;
+    private double medInvX;
+    private double medY;
     // Regression calculations
     private double rss;
     private double ssdX;
@@ -178,14 +188,14 @@ public class DataCSV {
      * @param values
      * @return median
      */    
-    private double medianList(List<Double> values) {
+    private double medList(List<Double> values) {
         int l=values.size();
         double[] v = new double[l];
         for(int i=0;i<l;i++)
             v[i]=values.get(i);
         Arrays.sort(v);
         if(l%2==0) { //even
-            return (double)(v[l/2]+v[l/2-1])/2;
+            return (v[l/2]+v[l/2-1])/2;
         } else { //odd
             return v[l/2];
         }
@@ -338,17 +348,69 @@ public class DataCSV {
      */
     public double getAvgX(int p) { return round(avgX,p);}
     /**
+     * Getter for Min of X
+     * @param p decimals
+     * @return min of column X
+     */
+    public double getMinX() { return minX;}
+    /**
+     * Getter for Max of X
+     * @param p decimals
+     * @return max of column X
+     */
+    public double getMaxX() { return maxX;}
+    /**
+     * Getter for Median of X
+     * @param p decimals
+     * @return median of column X
+     */
+    public double getMedX(int p) { return round(medX,p);}
+    /**
+     * Getter for Min of Y
+     * @param p decimals
+     * @return min of column Y
+     */
+    public double getMinY() { return minY;}
+    /**
+     * Getter for Max of Y
+     * @param p decimals
+     * @return max of column Y
+     */
+    public double getMaxY() { return maxY;}
+    /**
      * Getter for Average of Y
      * @param p decimals
      * @return average of column Y
      */
     public double getAvgY(int p) { return round(avgY,p);}
     /**
+     * Getter for Median of Y
+     * @param p decimals
+     * @return median of column Y
+     */
+    public double getMedY(int p) { return round(medY,p);}
+    /**
      * Getter of Average of 1/X
      * @param p decimals
      * @return average of column 1/X
      */
     public double getAvgInvX(int p) { return round(avgInvX,p);}
+    /**
+     * Getter of Min of 1/X
+     * @return min of column 1/X
+     */
+    public double getMinInvX(int p) { return round(minInvX,p);}
+    /**
+     * Getter of Max of 1/X
+     * @return min of column 1/X
+     */
+    public double getMaxInvX(int p) { return round(maxInvX,4);}
+    /**
+     * Getter of Median of 1/X
+     * @param p decimals
+     * @return median of column 1/X
+     */
+    public double getMedInvX(int p) { return round(medInvX,p);}
     /**
      * Getter of Sum of Squared Deviations
      * @param p decimals
@@ -432,10 +494,19 @@ public class DataCSV {
         sumY = sumList(y);
         avgX = avgList(x);
         avgY = avgList(y);
+        minX = minList(x);
+        minY = minList(y);
+        maxX = maxList(x);
+        maxY = maxList(y);
+        medX = medList(x);
+        medY = medList(y);
         ssdY = ssdList(y,avgY);
         if(inv) {
-            avgInvX = avgList(invX);
             sumInvX = sumList(invX);
+            avgInvX = avgList(invX);
+            minInvX = minList(invX);
+            maxInvX = maxList(invX);
+            medInvX = medList(invX);
             ssdX = ssdList(invX,avgInvX);
             rss = rssList(invX,y,avgInvX,avgY);
             a = rss/ssdX;
