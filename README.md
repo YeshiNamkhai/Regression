@@ -55,12 +55,18 @@ Then computing for each row [SSD](https://www.investopedia.com/terms/s/sum-of-sq
 | **R** = 0.9766 |
 | **R**<sup>2</sup> = 0.9537 |
 
+In this specific case there is one and only Miu, so with such regression coefficent we can be confident to make good predictions about her height in the future. 
+
+But what if the sample is only part of the whole population? We carry out **variance analysis** and we calculate the **confidence intervals**.
+
+Try with Risa's tea house data file and look at further figures in order to be sure about making good predictions. 
+
 
 ## Usage
 Run like any Java program, specify the data file **.csv**, X column (**0** default), Y column (**1** default), **true** for 1/X (when X is not linear).
 > java *SimpleLinearRegression* **ageMiu.csv 0 1 true**
 
-> java *SimpleLinearRegression* teaHouse.csv **1 2**
+> java *SimpleLinearRegression* **teaHouse.csv 1 2**
 
 > java *SimpleLinearRegression* **airPreassure.csv**
 
