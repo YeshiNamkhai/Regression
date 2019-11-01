@@ -82,7 +82,7 @@ public class Draw {
         charts.add(chartDis);
 
         XYChart chartReg = new XYChartBuilder()
-        .width(800).height(600).title(title+" with Regression").xAxisTitle(xTitle).yAxisTitle(yTitle)
+        .width(800).height(600).title(title+" with Regression Line").xAxisTitle(xTitle).yAxisTitle(yTitle)
         .theme(ChartTheme.GGPlot2).build();
 
         chartReg.addSeries("Data", xData, yData)

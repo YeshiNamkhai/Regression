@@ -1,70 +1,61 @@
 # Regression
 
-This is an implementation of *Simple Linear Regression* reading an input file in CSV format such as
+This is an implementation of *Simple Linear Regression* reading an input file (in CSV format) containing samples. 
 
-| Age | Height |
-| --- | --- |
-| 4 | 100.1 |
-| 5 | 107.2 |
-| 6 | 114.1 |
-| 7 | 121.7 |
-| 8 | 126.8 |
-| 9 | 130.9 |
-| 10 | 137.5 |
-| 11 | 143.2 |
-| 12 | 149.4 |
-| 13 | 151.6 |
-| 14 | 154.0 |
-| 15 | 154.6 |
-| 16 | 155.0 |
-| 17 | 155.1 |
-| 18 | 155.3 |
-| 19 | 155.7 |
-| Graph it | <img src="img/chart_Miu.PNG" width="200" /> |
+>Here we qoute the example of Miu's *age* and *height* from 4 to 19 years old: (4,100.1), (5,107.2), (6,114.1), (7,121.7), (8,126.8), (9,130.9), (10,137.5), (11,143.2), (12,149.4), (13,151.6), (14,154.0), (15,154.6), (16,155.0), (17,155.1), (18,155.3), (19,155.7).
 
-..and showing a dispersion plot to check whether is meaningful to look for an equation in the form **y=ax+b**. 
+First of all all computations are carried out and then a graph is automatically created with a *dispersion plot*, another with also the *regression line*, and finally if needed also the 1/X.  
+
+><img src="img/chart_Miu.PNG" width="400" />
+
+Predictions are carried out from the regression equation in the form **y=ax+b**. 
 
 <small>Where the variable **y** is indipendent and the variable  **x** is dipendent. In this equation the coefficent **a** is the regression and as usual gives the slope of the line.</small>
 
 Then computing for each row [SSD](https://www.investopedia.com/terms/s/sum-of-squares.asp) and [RSS](https://en.wikipedia.org/wiki/Residual_sum_of_squares).
 
-| | Age | <sup>1</sup>/<sub>age</sub> | Height |
-| --- | --- | --- | --- |
-| sum | 184.0 | 1.7144 | 2212.2 |
-| avg | 11.5 | 0.1072 | 138.3 |
-| min | 4.0 | 0.0526 | 100.1 |
-| max | 19.0 | 0.25 | 155.7 |
-| med | 11.5 | 0.0871 | 146.3 |
-| ssd | | 0.0489 | 5464.4575 |
+<small>
 
-| rss |
-| --- |
-| -15.9563| |
+>| | Age | <sup>1</sup>/<sub>age</sub> | Height |
+>| --- | --- | --- | --- |
+>| sum | 184.0 | 1.7144 | 2212.2 |
+>| avg | 11.5 | 0.1072 | 138.3 |
+>| min | 4.0 | 0.0526 | 100.1 |
+>| max | 19.0 | 0.25 | 155.7 |
+>| med | 11.5 | 0.0871 | 146.3 |
+>| ssd | | 0.0489 | 5464.4575 |
 
-| | coefficent |
-| --- | --- |
-| **a** <small>&sum;<sub>xy</sub> &sum;<sub>xx</sub></small> | -326.6 |
-| **b** <small><sub>avg</sub>Y-<sub>avg<sup>1</sup></sub>/<sub>age</sub>*a</small> |  173.3 | 
 
-| equation | chart | <sup>1</sup>/<sub>age</sub> |
-| --- | --- | --- |
-| **y** = -326.4**x** + 173.3 | <img src="img/regl_Miu.PNG" width="200" /> | <img src="img/regl_1_over_age_Miu.PNG" width="200" />
+>| rss |
+>| --- |
+>| -15.9563| |
 
-| | ŷ |
-| --- | --- |
-| avg | 138.3 |
-| ssd | 5211.7 |
-| Syŷ | 5211.7 |
+>| | coefficent |
+>| --- | --- |
+>| **a** <small>&sum;<sub>xy</sub> &sum;<sub>xx</sub></small> | -326.6 |
+>| **b** <small><sub>avg</sub>Y-<sub>avg<sup>1</sup></sub>/<sub>age</sub>*a</small> |  173.3 | 
 
-| regression coefficent |
-| --- |
-| **R** = 0.9766 |
-| **R**<sup>2</sup> = 0.9537 |
+>| regression line equation |
+>| --- |
+>| **y** = -326.4**x** + 173.3 |
 
-| | confidence |
-| --- | --- |
-| Se | 252.8 |
-| sigma | 4.2 |
+>| | ŷ |
+>| --- | --- |
+>| avg | 138.3 |
+>| ssd | 5211.7 |
+>| Syŷ | 5211.7 |
+
+>| regression coefficent |
+>| --- |
+>| **R** = 0.9766 |
+>| **R**<sup>2</sup> = 0.9537 |
+
+>| | confidence |
+>| --- | --- |
+>| Se | 252.8 |
+>| sigma | 4.2 |
+
+</small>
 
 In this specific case there is one and only Miu, so with such regression coefficent we can be confident to make good predictions about her height in the future. 
 
