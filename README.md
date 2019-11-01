@@ -43,7 +43,7 @@ The compute() method calculates all variables to describe statistically samples 
 >| **a** <small>&sum;<sub>xy</sub> &sum;<sub>xx</sub></small> | -326.6 |
 >| **b** <small><sub>avg</sub>Y-<sub>avg<sup>1</sup></sub>/<sub>age</sub>*a</small> |  173.3 | 
 
->| regression line equation |
+>| [equation](https://en.wikipedia.org/wiki/Simple_linear_regression) |
 >| --- |
 >| **y** = -326.4**x** + 173.3 |
 
@@ -65,13 +65,14 @@ The compute() method calculates all variables to describe statistically samples 
 
 </small>
 
-In this specific case there is one and only Miu, so with such regression coefficent we can be confident to make good predictions about her height in the future. 
+In this specific case there is one and only Miu, so with such correlation coefficent we can be confident to make good predictions about her height in the future. 
 
-But what if the sample is only part of the whole population? We carry out **variance analysis** and we calculate the **confidence intervals**.
-
-Try with Risa's tea house data file and look at further figures in order to be sure about making good predictions. 
+What if the samples re not the whole population? We carry out **variance analysis** and we calculate the **confidence intervals**.
 
 ><img src="img/chart_Risa.PNG" width="600" />
+
+Try out Risa's tea house data file and look at further figures in order to be sure about making good predictions. 
+
 
 
 ## Usage
