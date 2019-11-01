@@ -27,10 +27,10 @@ The compute() method calculates all variables to describe statistically samples 
 >| | Age | <sup>1</sup>/<sub>age</sub> | Height |
 >| --- | --- | --- | --- |
 >| sum | 184.0 | 1.7144 | 2212.2 |
->| [avg](https://en.wikipedia.org/wiki/Mean) | 11.5 | 0.1072 | 138.3 |
+>| [avg](https://en.wikipedia.org/wiki/Mean "actually this is called the Mean") | 11.5 | 0.1072 | 138.3 |
 >| min | 4.0 | 0.0526 | 100.1 |
 >| max | 19.0 | 0.25 | 155.7 |
->| [med](https://en.wikipedia.org/wiki/Median) | 11.5 | 0.0871 | 146.3 |
+>| [med](https://en.wikipedia.org/wiki/Median "actually this is called the Median") | 11.5 | 0.0871 | 146.3 |
 >| [ssd](https://www.investopedia.com/terms/s/sum-of-squares.asp) | | 0.0489 | 5464.4575 |
 
 
@@ -51,7 +51,7 @@ The compute() method calculates all variables to describe statistically samples 
 >| --- | --- |
 >| avg | 138.3 |
 >| ssd | 5211.7 |
->| Syŷ | 5211.7 |
+>| &Sigma;yŷ | 5211.7 |
 
 >| correlation |
 >| --- |
@@ -61,7 +61,7 @@ The compute() method calculates all variables to describe statistically samples 
 >| | confidence |
 >| --- | --- |
 >| Se | 252.8 |
->| sigma | 4.2 |
+>| &sigma; | 4.2 |
 
 </small>
 
