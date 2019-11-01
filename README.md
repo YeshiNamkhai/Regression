@@ -2,15 +2,23 @@
 
 This is an implementation of *Simple Linear Regression* reading an input file (in CSV format) containing samples. 
 
+<small>
+
 >Here we qoute the example of Miu's *age* and *height* from 4 to 19 years old: (4,100.1), (5,107.2), (6,114.1), (7,121.7), (8,126.8), (9,130.9), (10,137.5), (11,143.2), (12,149.4), (13,151.6), (14,154.0), (15,154.6), (16,155.0), (17,155.1), (18,155.3), (19,155.7).
+
+</small>
 
 First of all all computations are carried out and then a graph is automatically created with a *dispersion plot*, another with also the *regression line*, and finally if needed also the 1/X.  
 
-><img src="img/chart_Miu.PNG" width="400" />
+><img src="img/chart_Miu.PNG" width="600" />
 
 Predictions are carried out from the regression equation in the form **y=ax+b**. 
 
-<small>Where the variable **y** is indipendent and the variable  **x** is dipendent. In this equation the coefficent **a** is the regression and as usual gives the slope of the line.</small>
+<small>
+
+>Where the variable **y** is indipendent and the variable  **x** is dipendent. In this equation the coefficent **a** is the regression and as usual gives the slope of the line.
+
+</small>
 
 Then computing for each row [SSD](https://www.investopedia.com/terms/s/sum-of-squares.asp) and [RSS](https://en.wikipedia.org/wiki/Residual_sum_of_squares).
 
