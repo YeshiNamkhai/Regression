@@ -53,7 +53,7 @@ Then computing for each row [SSD](https://www.investopedia.com/terms/s/sum-of-sq
 >| ssd | 5211.7 |
 >| Syŷ | 5211.7 |
 
->| regression coefficent |
+>| correlation coefficent |
 >| --- |
 >| **R** = 0.9766 |
 >| **R**<sup>2</sup> = 0.9537 |
@@ -112,9 +112,16 @@ The code that performs simple linear regression is organized into a package cont
 - scatterPlot()
 
 ## Credits
-Inspiration for this Java coding challenge comes from [The Manga Guide to Regression Analysis](https://nostarch.com/regression) published in Italian by Le Scienze/La Repubblica (NO STARCH PRESS and Ohmsha Ltd.) in 2016.<small>
->Like a lot of people, Miu has had trouble learning regression analysis. But with new motivation—in the form of a handsome but shy customer—and the help of her brilliant café coworker Risa, she’s determined to master it.</small>
+Inspiration for this Java coding challenge comes from [The Manga Guide to Regression Analysis](https://nostarch.com/regression) published in English by NO STARCH PRESS and Ohmsha Ltd.
 
-Charts built with [XChart](https://knowm.org/open-source/xchart/) a light-weight and convenient library for plotting data.<small> 
+<small>
+
+>Like a lot of people, Miu has had trouble learning regression analysis. But with new motivation—in the form of a handsome but shy customer—and the help of her brilliant café coworker Risa, she’s determined to master it.
+</small>
+
+Charts built with [XChart](https://knowm.org/open-source/xchart/) a light-weight and convenient library for plotting data.
+
+<small> 
+
 >Its focus is on simplicity and ease-of-use, requiring only two lines of code to save or display a basic default chart.
 </small>
