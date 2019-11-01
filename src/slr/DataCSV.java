@@ -45,9 +45,11 @@ public class DataCSV {
     private double medY;
     // Regression calculations
     private double rss;
-    private double ssdX;
-    private double ssdY;
+    private double ssdX; // sum of squared deviations
+    private double ssdY; // sum of squared deviations
     private double eSum;
+    private double usvX; //umbiased sample variance
+    private double usvY; //umbiased sample variance
     // Regression equation coefficents
     private double a;  //y=ax+b
     private double b;  //y=ax+b
@@ -58,7 +60,7 @@ public class DataCSV {
     private double syHat;  //Syŷ
     private double ssdHat; //
     private double sigma;  
-
+    private double anova;
     /**
      * initializes array of fields and values
      * for file content
@@ -415,6 +417,18 @@ public class DataCSV {
      */
     public double getSsdY(int p) { return round(ssdY,p);}
     /**
+     * Getter of Umbiased Sample Variance
+     * @param p decimals
+     * @return usv of column X
+     */
+    public double getUsvX(int p) { return round(usvX,p);}
+    /**
+     * Getter of Umbiased Sample Variance
+     * @param p decimals
+     * @return usv of column Y
+     */
+    public double getUsvY(int p) { return round(usvY,p);}
+    /**
      * Getter of Residual Sum of Squares
      * @param p decimals
      * @return RSS
@@ -475,6 +489,12 @@ public class DataCSV {
      */
     public double getSigma(int p) { return round(sigma,p);}
     /**
+     * Getter of ANOVA
+     * @param p decimals
+     * @return statistic test value
+     */
+    public double getAnova(int p) { return round(anova,p);}
+    /**
      * Calculate linear regression and assign internal variables
      * @param iX index of independent variable
      * @param inv true if 1/X is required
@@ -522,6 +542,8 @@ public class DataCSV {
             b = avgY-avgX*a;
             yHat = hatList(x,a,b);
         }
+        usvX = ssdX/(x.size()-1);
+        usvY = ssdY/(y.size()-1);
         avgHat = avgList(yHat);
         // the average of regression function has to be same as Y's average
         if(round(avgHat,15)!=round(avgY,15)) {
@@ -533,5 +555,6 @@ public class DataCSV {
         r = syHat/Math.sqrt(ssdY*ssdHat);
         eSum = eSumList(y,yHat);
         sigma = Math.sqrt(eSum/(y.size()-2));
+        anova = ((a*a)/(1/ssdX))/(eSum/(y.size()-2));
     }
 }

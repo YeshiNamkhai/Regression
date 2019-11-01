@@ -27,8 +27,8 @@ class SimpleLinearRegression {
             System.out.format("min %6s %10s %10s\n",data.getMinX(),data.getMinInvX(4),data.getMinY());
             System.out.format("max %6s %10s %10s\n",data.getMaxX(),data.getMaxInvX(4),data.getMaxY());
             System.out.format("med %6s %10s %10s\n",data.getMedX(1),data.getMedInvX(4),data.getMedY(1));
-            System.out.format("ssd %17s %10s\n",data.getSsdX(4),data.getSsdY(4));
-
+            System.out.format("ssd %17s %10s\n",data.getSsdX(1),data.getSsdY(1));
+            System.out.format("usv %17s %10s\n",data.getUsvX(1),data.getUsvY(1));
         } else {
             System.out.println();
             System.out.format("%10s %10s\n",data.getFieldName(x),data.getFieldName(y));
@@ -38,6 +38,7 @@ class SimpleLinearRegression {
             System.out.format("max %6s %10s\n",data.getMaxX(),data.getMaxY());
             System.out.format("med %6s %10s\n",data.getMedX(1),data.getMedY(1));
             System.out.format("ssd %6s %10s\n",data.getSsdX(1),data.getSsdY(1));
+            System.out.format("usv %6s %10s\n",data.getUsvX(1),data.getUsvY(1));
         }
         
         System.out.println();
@@ -63,6 +64,7 @@ class SimpleLinearRegression {
         System.out.format("%20s\n","Confidence");
         System.out.format("Se %18s\n",data.getEsum(1));
         System.out.format("sigma %15s\n",data.getSigma(1));
+        System.out.format("anova %15s\n",data.getAnova(1));
         
         Draw chart = new Draw("Plot",data.getFieldName(x),data.getFieldName(y));
         if(inv)
