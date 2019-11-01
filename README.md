@@ -131,7 +131,7 @@ Wonderful coding experience on Microsoft [Visual Studio Code](https://code.visua
 
 <small>
 
->According to a survey done by Stack Overflow done in 2018 VSC was ranked the most popular developer environement tool.
+>According to a survey done by Stack Overflow in 2018 VSC was ranked the most popular developer environement tool.
 
 </small>
 
