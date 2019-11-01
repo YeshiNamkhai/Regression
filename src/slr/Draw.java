@@ -55,7 +55,7 @@ public class Draw {
         charts.add(chartDis);
 
         XYChart chartReg = new XYChartBuilder()
-        .width(800).height(600).title(title).xAxisTitle(xTitle).yAxisTitle(yTitle)
+        .width(800).height(600).title(title+" with Regression Line").xAxisTitle(xTitle).yAxisTitle(yTitle)
         .theme(ChartTheme.GGPlot2).build();
 
         chartReg.addSeries("Data", xData, yData)
@@ -100,10 +100,8 @@ public class Draw {
              .setXYSeriesRenderStyle(XYSeriesRenderStyle.Scatter);
         chartInv.addSeries("Reg. line", invData, zData)
              .setXYSeriesRenderStyle(XYSeriesRenderStyle.Line);
-//        chartInv.getStyler().setYAxisMin(0.0);
-
+        chartInv.getStyler().setYAxisMin(minY).setYAxisMax(maxY);
         charts.add(chartInv);
-
 
         new SwingWrapper<XYChart>(charts).displayChartMatrix();
     }

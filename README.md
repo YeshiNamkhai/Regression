@@ -71,6 +71,8 @@ But what if the sample is only part of the whole population? We carry out **vari
 
 Try with Risa's tea house data file and look at further figures in order to be sure about making good predictions. 
 
+><img src="img/chart_Risa.PNG" width="600" />
+
 
 ## Usage
 Run like any Java program, specify the data file **.csv**, X column (**0** default), Y column (**1** default), **true** for 1/X (when X is not linear).
