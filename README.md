@@ -120,9 +120,11 @@ Inspiration for this Java coding challenge comes from [The Manga Guide to Regres
 >Like a lot of people, Miu has had trouble learning regression analysis. But with new motivation—in the form of a handsome but shy customer—and the help of her brilliant café coworker Risa, she’s determined to master it.
 </small>
 
-Charts built with [XChart](https://knowm.org/open-source/xchart/) a light-weight and convenient library for plotting data.
+Expressive charts built with [XChart](https://knowm.org/open-source/xchart/) a light-weight and convenient library for plotting data.
 
 <small> 
 
 >Its focus is on simplicity and ease-of-use, requiring only two lines of code to save or display a basic default chart.
 </small>
+
+Wonderful coding experience on Microsoft [Visual Studio Code](https://code.visualstudio.com/) IDE and [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack).
