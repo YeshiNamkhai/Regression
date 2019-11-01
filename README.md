@@ -32,7 +32,7 @@ The compute() method calculates all variables to describe statistically samples 
 >| max | 19.0 | 0.25 | 155.7 |
 >| [med](https://en.wikipedia.org/wiki/Median "actually this is called the Median") | 11.5 | 0.0871 | 146.3 |
 >| [ssd](https://www.investopedia.com/terms/s/sum-of-squares.asp "actually this is called sum of squared deviations") | | 0.0489 | 5464.4575 |
->| [usv](https://en.wikipedia.org/wiki/Degrees_of_freedom_(statistics) "actually this is called unbiased sample variance or degree of freedom") | 10.0 | | 169.9 |
+>| [usv](https://en.wikipedia.org/wiki/Degrees_of_freedom_(statistics) "actually this is called unbiased sample variance or degree of freedom") | | 10.0 | 169.9 |
 
 >| [rss](https://en.wikipedia.org/wiki/Residual_sum_of_squares) |
 >| --- |
@@ -62,7 +62,7 @@ The compute() method calculates all variables to describe statistically samples 
 >| --- | --- |
 >| Se | 252.8 |
 >| &sigma; | 4.2 |
->| anova | 288.6 |
+>| [anova](https://en.wikipedia.org/wiki/Analysis_of_variance "actually called analysis of variance or statistic test") | 288.6 |
 
 </small>
 
