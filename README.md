@@ -129,4 +129,16 @@ Expressive charts built with [XChart](https://knowm.org/open-source/xchart/) a l
 
 Wonderful coding experience on Microsoft [Visual Studio Code](https://code.visualstudio.com/) IDE and [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack).
 
-Last but not least the unmistakable [AdoptOpenJDK](https://adoptopenjdk.net/)8.
+<small>
+
+>According to a survey done by Stack Overflow done in 2018 VSC was ranked the most popular developer environement tool.
+
+</small>
+
+Last but not least the unmistakable [AdoptOpenJDK](https://adoptopenjdk.net/) 8.
+
+<small>
+
+>AdoptOpenJDK provides rock-solid OpenJDK binaries for the Java ecosystem and also provides infrastructure as code, and a Build farm for builders of OpenJDK, on any platform.
+
+</small>
