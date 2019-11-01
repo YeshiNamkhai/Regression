@@ -128,3 +128,5 @@ Expressive charts built with [XChart](https://knowm.org/open-source/xchart/) a l
 </small>
 
 Wonderful coding experience on Microsoft [Visual Studio Code](https://code.visualstudio.com/) IDE and [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack).
+
+Last but not least the unmistakable [AdoptOpenJDK](https://adoptopenjdk.net/)8.
