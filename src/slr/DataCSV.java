@@ -58,7 +58,7 @@ public class DataCSV {
     private List<Double> yHat; //ŷ
     private double avgHat; //avgŷ
     private double syHat;  //Syŷ
-    private double ssdHat; //
+    private double ssdHat;
     private double sigma;  
     private double anova;
     /**

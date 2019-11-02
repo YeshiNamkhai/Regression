@@ -1,4 +1,6 @@
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import slr.DataCSV;
 import slr.Draw;
@@ -17,6 +19,14 @@ class SimpleLinearRegression {
         data.load(fileName);
         data.show();
         data.compute(x, inv, y);
+
+        // f-distribution table df1
+        double[] f = new double[]{0/*fake value*/,161.4476,18.5128,10.128,7.7086/*4*/,
+        6.6079,5.9874,5.5914,5.3177,5.1174,4.9646,4.8443/*11*/,
+        4.7472,4.6672,4.6001,4.5431,4.494,4.4513,4.4139/*18*/,
+        4.3807,4.3512,4.3248,4.3009,4.2793,4.2597,4.2417/*25*/,
+        4.2252,4.21,4.196,4.183,4.1709/*30*/,
+        4.0847/*40*/, 4.0012/*50*/, 3.9201/*60*/, 3.8415/*infinity*/};
 
         System.out.println();
         if(inv) {
@@ -65,6 +75,7 @@ class SimpleLinearRegression {
         System.out.format("Se %18s\n",data.getEsum(1));
         System.out.format("sigma %15s\n",data.getSigma(1));
         System.out.format("anova %15s\n",data.getAnova(1));
+        System.out.format("null %16s\n",f[data.getY().size()-2]>data.getAnova(0));
         
         Draw chart = new Draw("Plot",data.getFieldName(x),data.getFieldName(y));
         if(inv)

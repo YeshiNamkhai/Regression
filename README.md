@@ -136,6 +136,8 @@ Wonderful coding experience on Microsoft [Visual Studio Code](https://code.visua
 
 </small>
 
+F-Distribution tables courtecy of [SOCR](http://www.socr.ucla.edu/Applets.dir/F_Table.html).
+
 Last but not least the unmistakable [AdoptOpenJDK](https://adoptopenjdk.net/) 8.
 
 <small>
