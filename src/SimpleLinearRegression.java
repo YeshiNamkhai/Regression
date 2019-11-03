@@ -93,12 +93,11 @@ class SimpleLinearRegression {
             System.out.print("What "+data.getFieldName(x)+"? ");
             try {
                 testX = input.nextDouble();
-                if(inv) testX=1/testX;
+                double[] intY = data.getPredY(testX,1, inv);
                 if (data.getB(1)>0)
-                System.out.format("%s = %s*%s +%s\n",data.getPredY(testX,1)[1],data.getA(1),testX,data.getB(1));
-            else
-                System.out.format("%s = %s*%s %s\n",data.getPredY(testX,1)[1],data.getA(1),testX,data.getB(1));        
-                double[] intY = data.getPredY(testX,1);
+                    System.out.format("%s = %s*%s +%s\n",intY[1],data.getA(1),testX,data.getB(1));
+                else
+                    System.out.format("%s = %s*%s %s\n",intY[1],data.getA(1),testX,data.getB(1));        
                 System.out.format("%s <-- %s --> %s\n",intY[0],intY[1],intY[2]);
             }
             catch (Exception e) { 

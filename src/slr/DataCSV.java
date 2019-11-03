@@ -588,15 +588,21 @@ public class DataCSV {
      * @param p precision
      * @return min, ŷ, max
      */
-    public double[] getPredY(double vX, int p) {
-        double vY = a*vX+b; //predicted value
-        double dX = (vX-avgX)*(vX-avgX);
-        //check if vX is part of samples
+    public double[] getPredY(double vX, int p, boolean inv) {
+        double vY;  //predicted value
+        double dX;
         double dY; //delta interval 
-        if(x.indexOf(vX)>0)
-            dY = Math.sqrt(f*((1/y.size())+(dX/ssdX))*(eSum/(y.size()-2)));
+        if(inv) {
+            vY = a*1/vX+b; 
+            dX= (1/vX-avgInvX)*(1/vX-avgInvX);
+        } else {
+            vY = a*vX+b;
+            dX= (vX-avgX)*(vX-avgX);
+        }
+        if(x.contains(vX))
+            dY = Math.sqrt(f*(1/y.size()+dX/ssdX)*(eSum/(y.size()-2)));
         else
-            dY = Math.sqrt(f*(1+(1/y.size())+(dX/ssdX))*(eSum/(y.size()-2)));    
+            dY = Math.sqrt(f*(1+1/y.size()+dX/ssdX)*(eSum/(y.size()-2)));    
         double[] yP = new double[3]; 
         yP[1]=round(vY,p);  //predicted value
         yP[0]=round(vY-dY,p); //lower bound
