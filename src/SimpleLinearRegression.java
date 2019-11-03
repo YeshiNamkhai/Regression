@@ -1,20 +1,25 @@
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.List;
+import java.util.Locale;
+import java.util.Scanner;
 
 import slr.DataCSV;
 import slr.Draw;
 
 class SimpleLinearRegression {
+
     /**
      * Runs simple linear regression
      * @param fileName
      * @param x
      * @param y
      * @param inv
+     * @return
      * @throws IOException
      */
-    private static void execRegression(String fileName, int x, int y, boolean inv) throws IOException {
+    private static boolean execRegression(String fileName, int x, int y, boolean inv) throws IOException {
         DataCSV data = new DataCSV();
         data.load(fileName);
         data.show();
@@ -57,8 +62,10 @@ class SimpleLinearRegression {
         System.out.format("b %19s\n",data.getB(1));
 
         System.out.println();
-        System.out.format("y = %sx + %s\n",data.getA(1),data.getB(1));
-
+        if (data.getB(1)>0)
+            System.out.format("y = %sx +%s\n",data.getA(1),data.getB(1));
+        else
+            System.out.format("y = %sx %s\n",data.getA(1),data.getB(1));    
         System.out.println();
         System.out.format("%20s\n","Hat");
         System.out.format("avg %17s\n",data.getAvgHat(1));
@@ -75,13 +82,45 @@ class SimpleLinearRegression {
         System.out.format("Se %18s\n",data.getEsum(1));
         System.out.format("sigma %15s\n",data.getSigma(1));
         System.out.format("anova %15s\n",data.getAnova(1));
-        System.out.format("null %16s\n",f[data.getY().size()-2]>data.getAnova(0));
-        
+        System.out.format("F .05 %15s\n",f[data.getY().size()-2]);
+        System.out.println();
+
         Draw chart = new Draw("Plot",data.getFieldName(x),data.getFieldName(y));
         if(inv)
             chart.scatterPlot(data.getX(),data.getY(),data.getYhat(),data.getInvX());
         else
             chart.scatterPlot(data.getX(),data.getY(),data.getYhat());
+        
+        boolean nullHypothesis = f[data.getY().size()-2]>data.getAnova(4);
+
+        if(nullHypothesis) {
+            System.out.println("Sorry predictions are not reliable, programs ends.");
+            System.exit(0);
+        }
+        Scanner input = new Scanner(System.in);
+        input.useLocale(Locale.US);
+        double predX=0;  //x value to predict
+        while(true) {
+            System.out.print("What "+data.getFieldName(x)+"? ");
+            try {
+                predX = input.nextDouble();
+                if(inv) predX=1/predX;
+                if (data.getB(1)>0)
+                System.out.format("%s = %s*%s +%s\n",data.getPredX(predX,1),data.getA(1),predX,data.getB(1));
+            else
+                System.out.format("%s = %s*%s %s\n",data.getPredX(predX,1),data.getA(1),predX,data.getB(1));        
+            }
+            catch (Exception e) { 
+                String s = input.next();
+                if(s.equalsIgnoreCase("stop") || s.equalsIgnoreCase("end"))
+                    System.exit(0);
+                else {
+                System.out.print("Invalid "+data.getFieldName(x)+" input. ");
+                System.out.println("Type 'stop' or 'end' to finish.");
+                }
+            }
+        }
+        //input.close();
     }
     /**
      * Usage:  specify data file (*.csv), 
@@ -118,6 +157,6 @@ class SimpleLinearRegression {
         System.out.println();   
         System.out.println("--"+args[0]+"--");
         execRegression(args[0],x,y,inv);
-        System.out.println();    
+        System.out.println();
     }    
 }

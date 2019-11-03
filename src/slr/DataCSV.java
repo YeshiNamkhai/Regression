@@ -557,4 +557,15 @@ public class DataCSV {
         sigma = Math.sqrt(eSum/(y.size()-2));
         anova = ((a*a)/(1/ssdX))/(eSum/(y.size()-2));
     }
+    /**
+     * Gives back a single ŷ 
+     * @param vX x value to predict
+     * @param p precision
+     * @return y=ax+b
+     */
+    public double getPredX(double vX, int p) {
+        double a = round(this.a,p);
+        double b = round(this.b,p);   
+        return round(a*vX+b,p);
+    }
 }
