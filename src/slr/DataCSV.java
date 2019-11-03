@@ -61,6 +61,7 @@ public class DataCSV {
     private double ssdHat;
     private double sigma;  
     private double anova;
+    private double f; //critical value
     /**
      * initializes array of fields and values
      * for file content
@@ -265,7 +266,26 @@ public class DataCSV {
             return (double) Math.round(value * scale) / scale;
         } else return value;
     }
-   
+    /**
+     * Gives back a value from F-Distriution 
+     * @param n number of samples
+     * @param p %
+     * @return critical value
+     */
+    private double getF(int n,double p){
+        double[] f;
+        if(p==0.10)  //10%
+            f = new double[]{39.86346,8.52632,5.53832,4.54477,4.06042,3.77595,3.58943,3.45792,3.3603,3.28502,3.2252,3.17655,3.13621,3.10221,3.07319,3.04811,3.02623,3.00698,2.9899,2.97465,2.96096,2.94858,2.93736,2.92712,2.91774,2.90913,2.90119,2.89385,2.88703,2.88069,2.83535,2.79107,2.74781,2.70554};
+        else if(p==0.025) //2.5%
+            f = new double[]{647.789,38.5063,17.4434,12.2179,10.007,8.8131,8.0727,7.5709,7.2093,6.9367,6.7241,6.5538,6.4143,6.2979,6.1995,6.1151,6.042,5.9781,5.9216,5.8715,5.8266,5.7863,5.7498,5.7166,5.6864,5.6586,5.6331,5.6096,5.5878,5.5675,5.4239,5.2856,5.1523,5.0239};
+        else if(p==0.01) //1%
+            f = new double[]{4052.181,98.503,34.116,21.198,16.258,13.745,12.246,11.259,10.561,10.044,9.646,9.33,9.074,8.862,8.683,8.531,8.4,8.285,8.185,8.096,8.017,7.945,7.881,7.823,7.77,7.721,7.677,7.636,7.598,7.562,7.314,7.077,6.851,6.635};
+        else if(p==0.001) //0.1%
+            f = new double[]{405284.0679,998.5002501,167.0292238,74.13729332,47.18077922,35.50749025,29.24519336,25.41476047,22.85712515,21.03959527,19.68678565,18.64332157,17.81542047,17.14336026,16.58741634,16.12019551,15.72222635,15.37930598,15.08084102,14.81877555,14.58687806,14.38025503,14.19501174,14.02801082,13.87669745,13.73897062,13.61308701,13.49758824,13.3912451,13.29301437,12.60935783,11.97298729,11.38019033,10.82756617};
+        else  //5%
+            f = new double[]{161.4476,18.5128,10.128,7.7086,6.6079,5.9874,5.5914,5.3177,5.1174,4.9646,4.8443,4.7472,4.6672,4.6001,4.5431,4.494,4.4513,4.4139,4.3807,4.3512,4.3248,4.3009,4.2793,4.2597,4.2417,4.2252,4.21,4.196,4.183,4.1709,4.0847,4.0012,3.9201,3.8415};
+        return f[n-1];
+    }   
     /**
      * Getter for fields name
      * @return column
@@ -495,6 +515,10 @@ public class DataCSV {
      */
     public double getAnova(int p) { return round(anova,p);}
     /**
+     * Getter of F-Distribution's critical value
+     */
+    public double getFval() {return f;}
+    /**
      * Calculate linear regression and assign internal variables
      * @param iX index of independent variable
      * @param inv true if 1/X is required
@@ -556,16 +580,27 @@ public class DataCSV {
         eSum = eSumList(y,yHat);
         sigma = Math.sqrt(eSum/(y.size()-2));
         anova = ((a*a)/(1/ssdX))/(eSum/(y.size()-2));
+        f=getF(y.size()-2, 0.05);
     }
     /**
-     * Gives back a single ŷ 
-     * @param vX x value to predict
+     * Gives back a prediction
+     * @param vX x value
      * @param p precision
-     * @return y=ax+b
+     * @return min, ŷ, max
      */
-    public double getPredX(double vX, int p) {
-        double a = round(this.a,p);
-        double b = round(this.b,p);   
-        return round(a*vX+b,p);
+    public double[] getPredY(double vX, int p) {
+        double vY = a*vX+b; //predicted value
+        double dX = (vX-avgX)*(vX-avgX);
+        //check if vX is part of samples
+        double dY; //delta interval 
+        if(x.indexOf(vX)>0)
+            dY = Math.sqrt(f*((1/y.size())+(dX/ssdX))*(eSum/(y.size()-2)));
+        else
+            dY = Math.sqrt(f*(1+(1/y.size())+(dX/ssdX))*(eSum/(y.size()-2)));    
+        double[] yP = new double[3]; 
+        yP[1]=round(vY,p);  //predicted value
+        yP[0]=round(vY-dY,p); //lower bound
+        yP[2]=round(vY+dY,p); //higher bound
+        return yP;
     }
 }

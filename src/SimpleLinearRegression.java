@@ -1,7 +1,4 @@
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.InputMismatchException;
-import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
 
@@ -24,14 +21,6 @@ class SimpleLinearRegression {
         data.load(fileName);
         data.show();
         data.compute(x, inv, y);
-
-        // f-distribution table df1
-        double[] f = new double[]{0/*fake value*/,161.4476,18.5128,10.128,7.7086/*4*/,
-        6.6079,5.9874,5.5914,5.3177,5.1174,4.9646,4.8443/*11*/,
-        4.7472,4.6672,4.6001,4.5431,4.494,4.4513,4.4139/*18*/,
-        4.3807,4.3512,4.3248,4.3009,4.2793,4.2597,4.2417/*25*/,
-        4.2252,4.21,4.196,4.183,4.1709/*30*/,
-        4.0847/*40*/, 4.0012/*50*/, 3.9201/*60*/, 3.8415/*infinity*/};
 
         System.out.println();
         if(inv) {
@@ -82,7 +71,7 @@ class SimpleLinearRegression {
         System.out.format("Se %18s\n",data.getEsum(1));
         System.out.format("sigma %15s\n",data.getSigma(1));
         System.out.format("anova %15s\n",data.getAnova(1));
-        System.out.format("F .05 %15s\n",f[data.getY().size()-2]);
+        System.out.format("F .05 %15s\n",data.getFval());
         System.out.println();
 
         Draw chart = new Draw("Plot",data.getFieldName(x),data.getFieldName(y));
@@ -91,7 +80,7 @@ class SimpleLinearRegression {
         else
             chart.scatterPlot(data.getX(),data.getY(),data.getYhat());
         
-        boolean nullHypothesis = f[data.getY().size()-2]>data.getAnova(4);
+        boolean nullHypothesis = data.getFval()>data.getAnova(4);
 
         if(nullHypothesis) {
             System.out.println("Sorry predictions are not reliable, programs ends.");
@@ -99,16 +88,18 @@ class SimpleLinearRegression {
         }
         Scanner input = new Scanner(System.in);
         input.useLocale(Locale.US);
-        double predX=0;  //x value to predict
+        double testX=0;  //x value to predict
         while(true) {
             System.out.print("What "+data.getFieldName(x)+"? ");
             try {
-                predX = input.nextDouble();
-                if(inv) predX=1/predX;
+                testX = input.nextDouble();
+                if(inv) testX=1/testX;
                 if (data.getB(1)>0)
-                System.out.format("%s = %s*%s +%s\n",data.getPredX(predX,1),data.getA(1),predX,data.getB(1));
+                System.out.format("%s = %s*%s +%s\n",data.getPredY(testX,1)[1],data.getA(1),testX,data.getB(1));
             else
-                System.out.format("%s = %s*%s %s\n",data.getPredX(predX,1),data.getA(1),predX,data.getB(1));        
+                System.out.format("%s = %s*%s %s\n",data.getPredY(testX,1)[1],data.getA(1),testX,data.getB(1));        
+                double[] intY = data.getPredY(testX,1);
+                System.out.format("%s <-- %s --> %s\n",intY[0],intY[1],intY[2]);
             }
             catch (Exception e) { 
                 String s = input.next();
