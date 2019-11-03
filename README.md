@@ -72,9 +72,62 @@ What if the samples re not the whole population? We carry out **variance analysi
 
 ><img src="img/chart_Risa.PNG" width="600" />
 
-Try out Risa's tea house data file and look at further figures in order to be sure about making good predictions. 
+Try out Risa's tea house data file. Once all calculations are carried out and the **null hypothesis** is checked, you are asked to enter your request for prediction.
 
+<small>
 
+    --teaHouse.csv--
+            day     temp    icetea
+    0:      22.0    29.0    77.0    
+    1:      23.0    28.0    62.0    
+    2:      24.0    34.0    93.0
+    3:      25.0    31.0    84.0
+    4:      26.0    25.0    59.0    
+    5:      27.0    29.0    64.0    
+    6:      28.0    32.0    80.0
+    7:      29.0    31.0    75.0
+    8:      30.0    24.0    58.0    
+    9:      31.0    33.0    91.0
+    10:     1.0     25.0    51.0    
+    11:     2.0     31.0    73.0
+    12:     3.0     26.0    65.0
+    13:     4.0     30.0    84.0    
+
+            temp    icetea
+    sum     408.0   1016.0
+    avg     29.1      72.6
+    min     24.0      51.0
+    max     34.0      93.0
+    med     29.5      74.0
+    ssd     129.7   2203.4
+    usv     10.0     169.5
+
+    rss             484.9
+    a                 3.7
+    b               -36.4
+
+    y = 3.7x -36.4
+
+             Hat
+    avg              72.6
+    ssd            1812.3
+    Syŷ            1812.3
+
+          Regression
+    R              0.9069
+    R2             0.8225
+
+          Confidence
+    Se              391.1
+    sigma             5.7
+    anova            55.6
+    F .05          4.7472
+
+    What temp? 27
+    64.6 = 3.7*27.0 -36.4
+    51.9 <-- 64.6 --> 77.2
+
+</small>
 
 ## Usage
 Run like any Java program, specify the data file **.csv**, X column (**0** default), Y column (**1** default), **true** for 1/X (when X is not linear).
