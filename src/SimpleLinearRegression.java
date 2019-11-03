@@ -99,6 +99,7 @@ class SimpleLinearRegression {
                 else
                     System.out.format("%s = %s*%s %s\n",intY[1],data.getA(1),testX,data.getB(1));        
                 System.out.format("%s <-- %s --> %s\n",intY[0],intY[1],intY[2]);
+                System.out.println();
             }
             catch (Exception e) { 
                 String s = input.next();
