@@ -126,6 +126,20 @@ Try out Risa's tea house data file. Once all calculations are carried out and th
     What temp? 27
     64.6 = 3.7*27.0 -36.4
     51.9 <-- 64.6 --> 77.2
+    
+    What temp? 43
+    124.4 = 3.7*43.0 -36.4
+    104.8 <-- 124.4 --> 144.0
+
+    What temp? 50
+    150.5 = 3.7*50.0 -36.4
+    124.6 <-- 150.5 --> 176.5
+
+    What temp? 19.3
+    35.8 = 3.7*19.3 -36.4
+    19.3 <-- 35.8 --> 52.2
+
+    What temp? stop
 
 </small>
 

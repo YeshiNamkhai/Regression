@@ -1,6 +1,5 @@
 package slr;
 
-import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -10,14 +9,15 @@ import org.knowm.xchart.XYChart;
 import org.knowm.xchart.XYChartBuilder;
 import org.knowm.xchart.XYSeries.XYSeriesRenderStyle;
 import org.knowm.xchart.style.Styler.ChartTheme;
-import org.knowm.xchart.style.markers.SeriesMarkers;
 
 public class Draw {
 
-    List<XYChart> charts;
-    String title;
-    String xTitle;
-    String yTitle;
+     List<XYChart> charts;
+     SwingWrapper<XYChart> sw;
+     String title;
+     String xTitle;
+     String yTitle;
+     boolean initial=true;
 
     public Draw(String title, String xTitle, String yTitle) {
         this.title = title;
@@ -67,7 +67,16 @@ public class Draw {
         chartReg.getStyler().setYAxisMin(minY).setYAxisMax(maxY);
         charts.add(chartReg);
 
-        new SwingWrapper<XYChart>(charts).displayChartMatrix();
+        XYChart chartPred = new XYChartBuilder()
+        .width(800).height(600).title(title+" with Predictions").xAxisTitle(xTitle).yAxisTitle(yTitle)
+        .theme(ChartTheme.GGPlot2).build();
+        chartPred.addSeries("Reg. line", xData, yData)
+               .setXYSeriesRenderStyle(XYSeriesRenderStyle.Scatter);
+//        chartPred.getStyler().setYAxisMin(minY).setYAxisMax(maxY);
+        charts.add(chartPred);
+        
+        sw = new SwingWrapper<XYChart>(charts);
+        sw.displayChartMatrix();
     }
 
     public void scatterPlot(List<Double> xData, List<Double> yData, List<Double> zData, List<Double> invData) {
@@ -105,7 +114,26 @@ public class Draw {
         chartInv.getStyler().setYAxisMin(minY).setYAxisMax(maxY);
         charts.add(chartInv);
 
-        new SwingWrapper<XYChart>(charts).displayChartMatrix();
-    }
+        XYChart chartPred = new XYChartBuilder()
+        .width(800).height(600).title(title+" with Predictions").xAxisTitle(xTitle).yAxisTitle(yTitle)
+        .theme(ChartTheme.GGPlot2).build();
+        chartPred.addSeries("Reg. line", xData, yData)
+          .setXYSeriesRenderStyle(XYSeriesRenderStyle.Scatter);
+//        chartPred.getStyler().setYAxisMin(minY).setYAxisMax(maxY);
+        charts.add(chartPred);
 
+        sw = new SwingWrapper<XYChart>(charts);
+        sw.displayChartMatrix();
+    }
+    public void addPoint(List<Double> xData, List<Double> yData){
+         XYChart pred = charts.get(charts.size()-1);
+         if(!initial)
+              pred.updateXYSeries("Predictions", xData, yData, null);
+         else {
+               initial=false;
+               pred.addSeries("Predictions", xData, yData, null)
+                    .setXYSeriesRenderStyle(XYSeriesRenderStyle.Line);
+         }
+         sw.repaintChart(2);
+    }
 }

@@ -1,4 +1,6 @@
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
 
@@ -89,6 +91,9 @@ class SimpleLinearRegression {
         Scanner input = new Scanner(System.in);
         input.useLocale(Locale.US);
         double testX=0;  //x value to predict
+        List<Double> vPredX = new ArrayList<>();
+        List<Double> vPredY = new ArrayList<>();
+
         while(true) {
             System.out.print("What "+data.getFieldName(x)+"? ");
             try {
@@ -100,6 +105,9 @@ class SimpleLinearRegression {
                     System.out.format("%s = %s*%s %s\n",intY[1],data.getA(1),testX,data.getB(1));        
                 System.out.format("%s <-- %s --> %s\n",intY[0],intY[1],intY[2]);
                 System.out.println();
+                vPredX.add(testX);
+                vPredY.add(intY[1]);
+                chart.addPoint(vPredX,vPredY);
             }
             catch (Exception e) { 
                 String s = input.next();
