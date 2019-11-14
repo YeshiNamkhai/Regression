@@ -1,5 +1,6 @@
 package slr;
 
+import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -9,6 +10,7 @@ import org.knowm.xchart.XYChart;
 import org.knowm.xchart.XYChartBuilder;
 import org.knowm.xchart.XYSeries.XYSeriesRenderStyle;
 import org.knowm.xchart.style.Styler.ChartTheme;
+import org.knowm.xchart.style.markers.SeriesMarkers;
 
 public class Draw {
 
@@ -125,14 +127,16 @@ public class Draw {
         sw = new SwingWrapper<XYChart>(charts);
         sw.displayChartMatrix();
     }
-    public void addPoint(List<Double> xData, List<Double> yData){
+    public void addPoint(List<Double> xData, List<Double> yData, List<Double> errorBars){
          XYChart pred = charts.get(charts.size()-1);
          if(!initial)
-              pred.updateXYSeries("Predictions", xData, yData, null);
+              pred.updateXYSeries("Predictions", xData, yData, errorBars);
          else {
                initial=false;
-               pred.addSeries("Predictions", xData, yData, null)
-                    .setXYSeriesRenderStyle(XYSeriesRenderStyle.Line);
+               pred.addSeries("Predictions", xData, yData, errorBars)
+                    .setXYSeriesRenderStyle(XYSeriesRenderStyle.Line)
+                    .setMarkerColor(Color.ORANGE)
+                    .setMarker(SeriesMarkers.SQUARE);
          }
          sw.repaintChart(2);
     }

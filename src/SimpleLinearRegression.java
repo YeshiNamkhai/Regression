@@ -93,6 +93,7 @@ class SimpleLinearRegression {
         double testX=0;  //x value to predict
         List<Double> vPredX = new ArrayList<>();
         List<Double> vPredY = new ArrayList<>();
+        List<Double> vPredE = new ArrayList<>();
 
         while(true) {
             System.out.print("What "+data.getFieldName(x)+"? ");
@@ -107,7 +108,8 @@ class SimpleLinearRegression {
                 System.out.println();
                 vPredX.add(testX);
                 vPredY.add(intY[1]);
-                chart.addPoint(vPredX,vPredY);
+                vPredE.add(Math.max(intY[2]-intY[1], intY[1]-intY[0]));
+                chart.addPoint(vPredX,vPredY,vPredE);
             }
             catch (Exception e) { 
                 String s = input.next();
