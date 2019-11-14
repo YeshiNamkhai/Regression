@@ -109,7 +109,7 @@ class SimpleLinearRegression {
                 vPredX.add(testX);
                 vPredY.add(intY[1]);
                 vPredE.add(Math.max(intY[2]-intY[1], intY[1]-intY[0]));
-                chart.addPoint(vPredX,vPredY,vPredE);
+                chart.addPoint(vPredX,vPredY,vPredE,inv);
             }
             catch (Exception e) { 
                 String s = input.next();

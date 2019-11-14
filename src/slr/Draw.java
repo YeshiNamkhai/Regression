@@ -74,7 +74,6 @@ public class Draw {
         .theme(ChartTheme.GGPlot2).build();
         chartPred.addSeries("Reg. line", xData, yData)
                .setXYSeriesRenderStyle(XYSeriesRenderStyle.Scatter);
-//        chartPred.getStyler().setYAxisMin(minY).setYAxisMax(maxY);
         charts.add(chartPred);
         
         sw = new SwingWrapper<XYChart>(charts);
@@ -121,13 +120,12 @@ public class Draw {
         .theme(ChartTheme.GGPlot2).build();
         chartPred.addSeries("Reg. line", xData, yData)
           .setXYSeriesRenderStyle(XYSeriesRenderStyle.Scatter);
-//        chartPred.getStyler().setYAxisMin(minY).setYAxisMax(maxY);
         charts.add(chartPred);
 
         sw = new SwingWrapper<XYChart>(charts);
         sw.displayChartMatrix();
     }
-    public void addPoint(List<Double> xData, List<Double> yData, List<Double> errorBars){
+    public void addPoint(List<Double> xData, List<Double> yData, List<Double> errorBars, boolean inv){
          XYChart pred = charts.get(charts.size()-1);
          if(!initial)
               pred.updateXYSeries("Predictions", xData, yData, errorBars);
@@ -138,6 +136,9 @@ public class Draw {
                     .setMarkerColor(Color.ORANGE)
                     .setMarker(SeriesMarkers.SQUARE);
          }
-         sw.repaintChart(2);
+         if(inv)
+               sw.repaintChart(3);
+         else
+               sw.repaintChart(2);
     }
 }

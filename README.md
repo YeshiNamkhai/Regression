@@ -68,6 +68,20 @@ The compute() method calculates all variables to describe statistically samples 
 
 In this specific case there is one and only Miu, so with such correlation coefficent we can be confident to make good predictions about her height in the future. 
 
+<small>
+
+    What age? 21
+    157.7 = -326.6*21.0 +173.3
+    148.3 <-- 157.7 --> 167.1
+
+    What age? 32
+    163.1 = -326.6*32.0 +173.3
+    153.4 <-- 163.1 --> 172.7
+
+*The chart gets updated for every prediction!*
+
+</small>
+
 What if the samples re not the whole population? We carry out **variance analysis** and we calculate the **confidence intervals**.
 
 ><img src="img/chart_Risa.PNG" width="600" />
